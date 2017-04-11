@@ -1,0 +1,39 @@
+# Environment
+```
+# check current directory...
+pwd
+```
+# Prepare
+```
+# installing packages...
+npm install
+# starting pm2 test server...
+pm2 start npm --name expansyon-frontend-test -- start
+```
+# Test
+```
+# wait for compilation to finish before running tests...
+sleep 10 && npm run test
+```
+# Deploy
+```
+# get current date...
+NOW=$(date +"%F_%H%M%S")
+# copy this build to new folder...
+cp -r $PWD /srv/expansyon-frontend/build-$NOW
+# move to this new folder...
+cd /srv/expansyon-frontend/build-$NOW
+# remove latest build softlink...
+rm -r /srv/expansyon-frontend/current
+# create new latest build softlink...
+ln -s /srv/expansyon-frontend/build-$NOW /srv/expansyon-frontend/current
+# restart pm2 production server with new latest build...
+pm2 restart expansyon-frontend
+```
+# Cleanup
+```
+# stopping pm2 test server...
+pm2 stop expansyon-frontend-test
+# removing pm2 test server...
+pm2 delete expansyon-frontend-test
+```
