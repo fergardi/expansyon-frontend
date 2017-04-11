@@ -13,7 +13,7 @@ module.exports = function (config) {
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
     browsers: ['PhantomJS'],
     // If browser does not capture in given timeout [ms], kill it
-    captureTimeout: 60000,
+    captureTimeout: 10000,
     // frameworks to use
     frameworks: ['browserify', 'jasmine'],
     // list of files / patterns to load in the browser
@@ -42,9 +42,9 @@ module.exports = function (config) {
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_ERROR,
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   })
 }

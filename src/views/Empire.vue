@@ -6,7 +6,7 @@
         md-card-header
           .md-title {{ 'subtitle.planets' | i18n }}
         md-card-content.center.doughnut
-          pie(v-bind:data="planets.data")
+          //pie(v-bind:data="planets.data")
           span.total {{ planets.total }}
 
     md-layout(md-flex-xlarge="33", md-flex-large="33", md-flex-medium="33", md-flex-small="33", md-flex-xsmall="33")
@@ -14,7 +14,7 @@
         md-card-header
           .md-title {{ 'subtitle.buildings' | i18n }}
         md-card-content.center.doughnut
-          pie(v-bind:data="buildings.data")
+          //pie(v-bind:data="buildings.data")
           span.total {{ buildings.total }}
 
     md-layout(md-flex-xlarge="33", md-flex-large="33", md-flex-medium="33", md-flex-small="33", md-flex-xsmall="33")
@@ -22,7 +22,7 @@
         md-card-header
           .md-title {{ 'subtitle.ships' | i18n }}
         md-card-content.center.doughnut
-          pie(v-bind:data="ships.data")
+          //pie(v-bind:data="ships.data")
           span.total {{ ships.total }}
 
     md-layout(md-flex-xlarge="33", md-flex-large="33", md-flex-medium="33", md-flex-small="50", md-flex-xsmall="100")
@@ -80,11 +80,11 @@
 </template>
 
 <script>
-  import { pie } from '../components/chart'
+  // import { pie } from '../components/chart'
   import store from '../vuex/store'
 
   export default {
-    components: { pie },
+    // components: { pie },
     data () {
       return {
         planets: {
