@@ -4,8 +4,8 @@ const constants = {
     socket: '//localhost:34567'
   },
   production: {
-    api: 'https://expansyon.com:34567/api',
-    socket: 'https://expansyon.com:34567'
+    api: 'https://expansyon.com/api',
+    socket: 'https://expansyon.com'
   }
 }
 
