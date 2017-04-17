@@ -7,6 +7,7 @@ import VueInternationalization from 'vue-i18n'
 import moment from 'moment'
 
 import App from './App.vue'
+import Galaxy from './views/Galaxy.vue'
 import Empire from './views/Empire.vue'
 import Planetarium from './views/Planetarium.vue'
 import Market from './views/Market.vue'
@@ -49,6 +50,7 @@ Vue.use(VueRouter)
 var router = new VueRouter({
   routes: [
     { path: '/', redirect: '/login' },
+    { path: '/galaxy', component: Galaxy, name: 'galaxy' },
     { path: '/empire', component: Empire, name: 'empire' },
     { path: '/planetarium', component: Planetarium, name: 'planetarium' },
     { path: '/market', component: Market, name: 'market' },
@@ -75,6 +77,7 @@ var router = new VueRouter({
 
 // secured routes
 const security = [
+  'galaxy',
   'empire',
   'planetarium',
   'market',
