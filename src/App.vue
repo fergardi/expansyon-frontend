@@ -30,6 +30,11 @@
 
         md-subheader {{ 'subtitle.economy' | i18n }}
         md-list-item
+          router-link(exact, to="/galaxy", v-on:click.native="collapse()")
+            md-avatar
+              md-icon.md-primary equalizer
+            span {{ 'title.galaxy' | i18n }}
+        md-list-item
           router-link(exact, to="/empire", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary equalizer
