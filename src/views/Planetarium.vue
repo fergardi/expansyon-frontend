@@ -1,7 +1,7 @@
 <template lang="pug">
   md-layout
 
-    md-dialog(ref='sale')
+    md-dialog(ref="sale")
       md-card.md-primary(v-bind:class="selected.class")
         form(v-on:submit.stop.prevent="sell()")
           md-card-header

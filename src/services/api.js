@@ -9,6 +9,12 @@ const api = {
       return response.data
     })
   },
+  getUniverse: () => {
+    return axios.get(`/planet`)
+    .then((response) => {
+      return response.data
+    })
+  },
   getPlanets: (id) => {
     return axios.get(`/planet/${id}`)
     .then((response) => {
