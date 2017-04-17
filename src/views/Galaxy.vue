@@ -11,7 +11,7 @@
   export default {
     data () {
       return {
-        images: [
+        planets: [
           'https://image.flaticon.com/icons/svg/124/124558.svg',
           'https://image.flaticon.com/icons/svg/124/124582.svg',
           'https://image.flaticon.com/icons/svg/139/139706.svg',
@@ -34,6 +34,12 @@
           'https://image.flaticon.com/icons/svg/139/139707.svg',
           'https://image.flaticon.com/icons/svg/270/270146.svg',
           'https://image.flaticon.com/icons/svg/124/124559.svg'
+        ],
+        galaxies: [
+          'https://image.flaticon.com/icons/svg/190/190279.svg',
+          'https://image.flaticon.com/icons/svg/139/139686.svg',
+          'https://image.flaticon.com/icons/svg/167/167347.svg',
+          'https://image.flaticon.com/icons/svg/124/124567.svg'
         ]
       }
     },
@@ -62,18 +68,18 @@
         maxClusterRadius: 50,
         iconCreateFunction: (cluster) => {
           return L.icon({
-            iconUrl: 'https://image.flaticon.com/icons/svg/190/190279.svg',
-            iconSize: [38, 95],
-            iconAnchor: [22, 94]
+            iconUrl: this.galaxies[Math.floor(Math.random() * this.galaxies.length)],
+            iconSize: [50, 50],
+            iconAnchor: [50, 50]
           })
         }
       }).addTo(map)
       for (var i = 0; i < 500; i++) {
         system.addLayer(L.marker([-90 + Math.floor(Math.random() * 180), -180 + Math.floor(Math.random() * 360)], {
           icon: L.icon({
-            iconUrl: this.images[Math.floor(Math.random() * this.images.length)],
-            iconSize: [38, 95],
-            iconAnchor: [22, 94]
+            iconUrl: this.planets[Math.floor(Math.random() * this.planets.length)],
+            iconSize: [25, 25],
+            iconAnchor: [25, 25]
           })
         }))
       }
