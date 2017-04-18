@@ -94,12 +94,12 @@
       }
     },
     mounted () {
-      store.commit('title', 'title.exploration')
+      store.commit('title', 'title.galaxy')
       this.universe()
       this.refresh()
     },
     sockets: {
-      exploration () {
+      galaxy () {
         this.refresh()
       }
     },
@@ -107,7 +107,7 @@
       universe () {
         this.map = L.map('map', {
           zoomControl: false
-        }).setView([0, 0], 2)
+        }).setView([0, 0], 6)
         var bounds = new L.LatLngBounds(new L.LatLng(90, -180), new L.LatLng(-90, 180))
         L.tileLayer('http://psousa.net/demos/zoom-images/eso/{z}/{x}/{y}.jpg', {
           center: bounds.getCenter(),
@@ -124,6 +124,7 @@
           chunkedLoading: true,
           animate: true,
           maxClusterRadius: 50,
+          animateAddingMarkers: true,
           iconCreateFunction: (cluster) => {
             return L.icon({
               iconUrl: this.galaxies[Math.floor(Math.random() * this.galaxies.length)],
@@ -134,25 +135,19 @@
         }).addTo(this.map)
       },
       refresh () {
-        api.getUniverse()
-        .then((planets) => {
-          this.planets = planets
+        this.system.eachLayer((layer) => {
+          this.system.removeLayer(layer)
         })
-        .then(() => {
-          this.system.eachLayer((layer) => {
-            this.system.removeLayer(layer)
-          })
-          this.planets.forEach((planet) => {
-            this.system.addLayer(L.marker([planet.lat, planet.lng], {
-              icon: L.icon({
-                iconUrl: planet.image,
-                iconSize: [25, 25],
-                iconAnchor: [25, 25]
-              })
-            }).on('click', (ev) => {
-              this.select(planet)
-            }))
-          })
+        this.filtered.forEach((planet) => {
+          this.system.addLayer(L.marker([planet.lat, planet.lng], {
+            icon: L.icon({
+              iconUrl: planet.image,
+              iconSize: [25, 25],
+              iconAnchor: [25, 25]
+            })
+          }).on('click', (ev) => {
+            this.select(planet)
+          }))
         })
       },
       info () {
@@ -186,11 +181,11 @@
         }
         api.startBattle(battle)
         .then((battle) => {
-          notification.success('notification.exploration.ok')
+          notification.success('notification.galaxy.ok')
         })
         .catch((error) => {
           console.error(error)
-          notification.error('notification.exploration.error')
+          notification.error('notification.galaxy.error')
         })
         .then(() => {
           this.clear()
@@ -208,6 +203,11 @@
         return planet.Player
           ? planet.Player.name
           : null
+      }
+    },
+    watch: {
+      filtered () {
+        this.refresh()
       }
     },
     computed: {
@@ -230,7 +230,7 @@
         return store.state.search
       },
       filtered () {
-        return this.player.Exploration.filter((planet) => {
+        return this.player.Galaxy.filter((planet) => {
           return planet.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
         })
       }

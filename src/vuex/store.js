@@ -14,7 +14,7 @@ const store = new Vuex.Store({
       id: 0
     },
     player: {
-      Exploration: []
+      Galaxy: []
     },
     notification: {
       text: '',

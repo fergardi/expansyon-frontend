@@ -7,6 +7,7 @@
           .md-title
             span {{ item(selected).name | i18n }}
             md-chip(v-if="selected.quantity > 0") {{ selected.quantity | format }}
+            md-chip(v-if="selected.Planet") {{ selected.Planet.total | format }}
         md-card-media(v-if="!selected.Planet")
           img(v-bind:src="item(selected).image")
         md-card-media.system(v-else)

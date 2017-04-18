@@ -30,11 +30,6 @@
 
         md-subheader {{ 'subtitle.economy' | i18n }}
         md-list-item
-          router-link(exact, to="/galaxy", v-on:click.native="collapse()")
-            md-avatar
-              md-icon.md-primary equalizer
-            span {{ 'title.galaxy' | i18n }}
-        md-list-item
           router-link(exact, to="/empire", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary equalizer
@@ -60,11 +55,11 @@
 
         md-subheader {{ 'subtitle.strategy' | i18n }}
         md-list-item
-          router-link(exact, to="/exploration", v-on:click.native="collapse()")
+          router-link(exact, to="/galaxy", v-on:click.native="collapse()")
             md-avatar
-              md-icon.md-primary search
-            span {{ 'title.exploration' | i18n }}
-            md-chip {{ player.Exploration.length | format }}
+              md-icon.md-primary public
+            span {{ 'title.galaxy' | i18n }}
+            md-chip {{ player.Galaxy.length | format }}
         md-list-item
           router-link(exact, to="/cantina", v-on:click.native="collapse()")
             md-avatar
@@ -369,8 +364,8 @@
           }
         }
       },
-      exploration () {
-        notification.success('notification.exploration.new')
+      galaxy () {
+        notification.success('notification.galaxy.new')
       },
       cantina () {
         notification.success('notification.cantina.new')

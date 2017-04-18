@@ -4,7 +4,9 @@
     md-dialog(ref='confirm')
       md-card.md-primary(v-bind:class="selected.class")
         md-card-header
-          .md-title {{ selected.name | i18n }}
+          .md-title
+            span {{ selected.name | i18n }}
+            md-chip {{ 1 | format }}
         md-card-media
           img(v-bind:src="selected.image")
         md-card-content
@@ -19,7 +21,9 @@
     
       md-card.md-primary.card(v-bind:class="relic.class", md-with-hover, v-on:click.native="select(relic)")
         md-card-header
-          .md-title {{ relic.name | i18n }}
+          .md-title
+            span {{ relic.name | i18n }}
+            md-chip {{ 1 | format }}
         md-card-media
           img(v-bind:src="relic.image")
         md-card-content.center

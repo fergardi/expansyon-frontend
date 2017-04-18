@@ -7,7 +7,6 @@ import VueInternationalization from 'vue-i18n'
 import moment from 'moment'
 
 import App from './App.vue'
-import Galaxy from './views/Galaxy.vue'
 import Empire from './views/Empire.vue'
 import Planetarium from './views/Planetarium.vue'
 import Market from './views/Market.vue'
@@ -16,7 +15,7 @@ import Research from './views/Research.vue'
 import Hangar from './views/Hangar.vue'
 import Infrastructure from './views/Infrastructure.vue'
 import Defense from './views/Defense.vue'
-import Exploration from './views/Exploration.vue'
+import Galaxy from './views/Galaxy.vue'
 import Cantina from './views/Cantina.vue'
 import Relicarium from './views/Relicarium.vue'
 import Temple from './views/Temple.vue'
@@ -50,7 +49,6 @@ Vue.use(VueRouter)
 var router = new VueRouter({
   routes: [
     { path: '/', redirect: '/login' },
-    { path: '/galaxy', component: Galaxy, name: 'galaxy' },
     { path: '/empire', component: Empire, name: 'empire' },
     { path: '/planetarium', component: Planetarium, name: 'planetarium' },
     { path: '/market', component: Market, name: 'market' },
@@ -59,7 +57,7 @@ var router = new VueRouter({
     { path: '/hangar', component: Hangar, name: 'hangar' },
     { path: '/infrastructure', component: Infrastructure, name: 'infrastructure' },
     { path: '/defense', component: Defense, name: 'defense' },
-    { path: '/exploration', component: Exploration, name: 'exploration' },
+    { path: '/galaxy', component: Galaxy, name: 'galaxy' },
     { path: '/cantina', component: Cantina, name: 'cantina' },
     { path: '/relicarium', component: Relicarium, name: 'relicarium' },
     { path: '/temple', component: Temple, name: 'temple' },
@@ -77,7 +75,6 @@ var router = new VueRouter({
 
 // secured routes
 const security = [
-  'galaxy',
   'empire',
   'planetarium',
   'market',
@@ -86,7 +83,7 @@ const security = [
   'hangar',
   'infrastructure',
   'defense',
-  'exploration',
+  'galaxy',
   'cantina',
   'relicarium',
   'temple',
@@ -101,7 +98,6 @@ const security = [
 // material
 Vue.use(VueMaterial)
 Vue.material.registerTheme({
-  // fallback
   default: {
     primary: {
       color: 'blue-grey',
@@ -110,22 +106,6 @@ Vue.material.registerTheme({
     accent: 'green',
     warn: 'red'
   }
-  /* TODO FIX
-  default: {
-    primary: {
-      color: 'blue-grey',
-      hue: '900'
-    },
-    accent: {
-      color: 'light-green',
-      hue: 'A700'
-    },
-    warn: {
-      color: 'red',
-      hue: 'A700'
-    }
-  }
-  */
 })
 
 // filter

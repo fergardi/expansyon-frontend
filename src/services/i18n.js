@@ -62,8 +62,8 @@ const translation = {
         regret: 'Sale canceled',
         error: 'There has been an error'
       },
-      exploration: {
-        new: 'There are new planets in exploration',
+      galaxy: {
+        new: 'There are new planets in the galaxy',
         ok: 'Attack sent',
         error: 'There has been an error'
       },
@@ -165,7 +165,7 @@ const translation = {
       census: 'Census',
       defense: 'Defense',
       empire: 'Empire',
-      exploration: 'Exploration',
+      galaxy: 'Galaxy',
       guild: 'Guild',
       hangar: 'Hangar',
       help: 'Help',
@@ -421,8 +421,8 @@ const translation = {
       }
     },
     skill: {
-      exploration: {
-        name: 'Exploration',
+      galaxy: {
+        name: 'Galaxy',
         description: 'Description'
       },
       fighter: {
@@ -650,8 +650,8 @@ const translation = {
         regret: 'Oferta cancelada',
         error: 'Ha ocurrido un error'
       },
-      exploration: {
-        new: 'Hay nuevos planetas en exploración',
+      galaxy: {
+        new: 'Hay nuevos planetas en la galaxia',
         ok: 'Ataque enviado',
         error: 'Ha ocurrido un error'
       },
@@ -753,7 +753,7 @@ const translation = {
       census: 'Censo',
       defense: 'Defensa',
       empire: 'Imperio',
-      exploration: 'Exploración',
+      galaxy: 'Galaxia',
       guild: 'Hermandad',
       hangar: 'Hangar',
       help: 'Ayuda',
@@ -1009,9 +1009,9 @@ const translation = {
       }
     },
     skill: {
-      exploration: {
-        name: 'Exploración',
-        description: 'Aumenta en +1 los planetas en Exploración'
+      galaxy: {
+        name: 'Galaxia',
+        description: 'Aumenta en +1 los planetas en la Galaxia'
       },
       fighter: {
         name: 'Caza',
