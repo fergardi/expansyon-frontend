@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref="sale")
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         form(v-on:submit.stop.prevent="sell()")
           md-card-header
             .md-title
@@ -30,7 +30,7 @@
             md-button.md-dense.md-accent(type="submit", v-bind:disabled="!has") {{ 'button.sell' | i18n }}
 
     md-dialog(ref='info')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title
             span {{ selected.name }}
@@ -67,10 +67,10 @@
           md-progress(v-bind:md-progress="planet.size")
           md-progress(v-bind:md-progress="planet.energy")
           md-progress(v-bind:md-progress="planet.influence")
-        md-card-content.center(v-if="planet.moon || planet.station")
+        md-card-content(v-if="planet.moon || planet.station")
           md-chip(v-if="planet.moon") {{ 'resource.moon' | i18n }}
           md-chip(v-if="planet.station") {{ 'resource.station' | i18n }}
-        md-card-content.center
+        md-card-content
           span {{ planet.description | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

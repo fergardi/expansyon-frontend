@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref='confirm')
-      md-card.md-primary
+      md-card.md-primary.card
         md-card-header
           .md-title {{ 'dialog.confirm.title' | i18n }}
         md-card-content
@@ -17,7 +17,7 @@
           .md-title
             span {{ branch.name | i18n }}
             md-chip {{ total(branch) | format }}
-        md-card-content.center.background.padding
+        md-card-content.background.padding
           md-layout.center
             md-layout.flex.center(v-for="(skill, index) in branch.Skills", v-bind:md-flex-xlarge="layout(index)", v-bind:md-flex-large="layout(index)", v-bind:md-flex-small="layout(index)", v-bind:md-flex-xsmall="layout(index)")
               md-button.md-fab.md-raised.md-primary.skill(v-on:click.native="up(skill)", v-bind:disabled="!can(skill, branch)")
@@ -26,7 +26,7 @@
               div
                 span {{ skill.name | i18n }}
                 md-tooltip(md-direction="top") {{ skill.description | i18n }}
-        md-card-content.center
+        md-card-content
           span {{ branch.description | i18n }}
         md-card-actions
           md-button.md-dense.md-warn(v-on:click.native="refresh()") {{ 'button.reset' | i18n }}

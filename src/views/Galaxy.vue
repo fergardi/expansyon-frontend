@@ -22,17 +22,17 @@
           md-progress(v-bind:md-progress="selected.size")
           md-progress(v-bind:md-progress="selected.energy")
           md-progress(v-bind:md-progress="selected.influence")
-        md-card-content.center(v-if="selected.moon || selected.station")
+        md-card-content(v-if="selected.moon || selected.station")
           md-chip(v-if="selected.moon") {{ 'resource.moon' | i18n }}
           md-chip(v-if="selected.station") {{ 'resource.station' | i18n }}
-        md-card-content.center
+        md-card-content
           span {{ selected.description | i18n }}
         md-card-actions
           md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
           md-button.md-dense.md-accent(v-on:click.native="battle()") {{ 'button.attack' | i18n }}
 
     md-dialog(ref="battle")
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         form(v-on:submit.stop.prevent="attack()")
           md-card-header
             .md-title

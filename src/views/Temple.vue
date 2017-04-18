@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref='confirm')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title {{ selected.name | i18n }}
         md-card-media
@@ -35,9 +35,9 @@
           md-progress(v-bind:md-progress="faction.aim")
           md-progress(v-bind:md-progress="faction.evasion")
           md-progress(v-bind:md-progress="faction.cargo")
-        md-card-content.center
+        md-card-content
           span {{ faction.description | i18n }}
-        md-card-content.center
+        md-card-content
           md-chip.pink {{ faction.aether | format }} {{ 'resource.aether' | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

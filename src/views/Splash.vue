@@ -6,7 +6,7 @@
       md-card.card.flex
         md-card-content.flex.center
           span.title Expansyon
-        md-card-content.center
+        md-card-content
           router-link(exact, to="/login")
             md-button.md-raised Play
 

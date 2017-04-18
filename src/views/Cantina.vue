@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref='form')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         form(v-on:submit.stop.prevent="attack()")
           md-card-header
             .md-title {{ selected.name | i18n }}
@@ -38,7 +38,7 @@
           md-progress(v-bind:md-progress="mission.attack")
           md-progress(v-bind:md-progress="mission.defense")
           md-progress(v-bind:md-progress="mission.speed")
-        md-card-content.center
+        md-card-content
           span {{ mission.description | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

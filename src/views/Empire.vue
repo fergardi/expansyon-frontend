@@ -5,7 +5,7 @@
       md-card.md-primary.card
         md-card-header
           .md-title {{ 'subtitle.planets' | i18n }}
-        md-card-content.center.doughnut
+        md-card-content.doughnut
           //pie(v-bind:data="planets.data")
           span.total {{ planets.total }}
 
@@ -13,7 +13,7 @@
       md-card.md-primary.card
         md-card-header
           .md-title {{ 'subtitle.buildings' | i18n }}
-        md-card-content.center.doughnut
+        md-card-content.doughnut
           //pie(v-bind:data="buildings.data")
           span.total {{ buildings.total }}
 
@@ -21,7 +21,7 @@
       md-card.md-primary.card
         md-card-header
           .md-title {{ 'subtitle.ships' | i18n }}
-        md-card-content.center.doughnut
+        md-card-content.doughnut
           //pie(v-bind:data="ships.data")
           span.total {{ ships.total }}
 
@@ -72,7 +72,7 @@
       md-card.md-primary.card(v-else)
         md-card-header
           .md-title Faction
-        md-card-content.center
+        md-card-content
           p No faction yet
         md-card-actions
           router-link(exact, to="/temple")

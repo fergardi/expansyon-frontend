@@ -564,6 +564,8 @@
         img
           height 140px
           padding 10px
+      .md-card-content
+        text-align center
 
   /* CARDS */
   border = 4px
@@ -601,6 +603,7 @@
         span + .md-chip
           margin-left 5px
     .md-card-content
+      text-align center
       color white
       .md-progress
         height 10px
@@ -610,6 +613,7 @@
         height 140px
         padding 10px
     .md-card-actions
+      text-align center
       padding 16px
 
   // snackbar

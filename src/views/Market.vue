@@ -2,7 +2,7 @@
   md-layout
   
     md-dialog(ref='info')
-      md-card.md-primary(v-bind:class="item(selected).class")
+      md-card.md-primary.card(v-bind:class="item(selected).class")
         md-card-header
           .md-title
             span {{ item(selected).name | i18n }}
@@ -29,7 +29,7 @@
           md-button.md-dense.md-accent(v-on:click.native="confirm()", v-if="!mine", v-bind:disabled="!can") {{ 'button.buy' | i18n }}
 
     md-dialog(ref='confirm')
-      md-card.md-primary
+      md-card.md-primary.card
         md-card-header
           .md-title {{ 'dialog.confirm.title' | i18n }}
         md-card-content
@@ -57,7 +57,7 @@
           .orbit(v-if="item(sale).moon || item(sale).station")
             img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="item(sale).moon")
             img(src="https://image.flaticon.com/icons/svg/139/139726.svg", v-show="item(sale).station")
-        md-card-content.center(v-if="sale.Planet && (item(sale).moon || item(sale).station)")
+        md-card-content(v-if="sale.Planet && (item(sale).moon || item(sale).station)")
           md-chip(v-if="item(sale).moon") {{ 'resource.moon' | i18n }}
           md-chip(v-if="item(sale).station") {{ 'resource.station' | i18n }}
         md-card-content.no-padding(v-if="sale.Planet")
@@ -74,7 +74,7 @@
           md-progress(v-bind:md-progress="item(sale).aim", v-if="item(sale).aim")
           md-progress(v-bind:md-progress="item(sale).evasion", v-if="item(sale).evasion")
           md-progress(v-bind:md-progress="item(sale).cargo", v-if="item(sale).cargo")
-        md-card-content.center(v-if="sale.Relic")
+        md-card-content(v-if="sale.Relic")
           md-chip(v-if="item(sale).level > 0") {{ item(sale).level | format }} {{ 'resource.level' | i18n }}
           md-chip(v-if="item(sale).experience > 0") {{ item(sale).experience | format }} {{ 'resource.experience' | i18n }}
           md-chip(v-if="item(sale).planet") {{ 'resource.planet' | i18n }}
@@ -88,9 +88,9 @@
           md-chip(v-if="item(sale).metal > 0") {{ item(sale).metal | format }} {{ 'resource.metal' | i18n }}
           md-chip(v-if="item(sale).crystal > 0") {{ item(sale).crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip(v-if="item(sale).oil > 0") {{ item(sale).oil | format }} {{ 'resource.oil' | i18n }}
-        md-card-content.center(v-if="item(sale).description")
+        md-card-content(v-if="item(sale).description")
           span {{ item(sale).description | i18n }}
-        md-card-content.center
+        md-card-content
           md-chip(v-if="sale.metal > 0") {{ sale.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip(v-if="sale.crystal > 0") {{ sale.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip(v-if="sale.oil > 0") {{ sale.oil | format }} {{ 'resource.oil' | i18n }}

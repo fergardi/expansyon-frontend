@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref='form')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         form(v-on:submit.stop.prevent="build()")
           md-card-header
             .md-title
@@ -36,9 +36,9 @@
           md-progress(v-bind:md-progress="tower.attack")
           md-progress(v-bind:md-progress="tower.defense")
           md-progress(v-bind:md-progress="tower.speed")
-        md-card-content.center
+        md-card-content
           span {{ tower.description | i18n }}
-        md-card-content.center
+        md-card-content
           md-chip {{ tower.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip {{ tower.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip {{ tower.oil | format }} {{ 'resource.oil' | i18n }}

@@ -2,18 +2,17 @@
   md-layout
 
     md-dialog(ref='sale')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         form(v-on:submit.stop.prevent="sell()")
           md-card-header
             .md-title
               span {{ selected.name | i18n }}
               md-chip {{ selected.PlayerShip.quantity - quantity | format }}
           md-card-content
-            md-input-container(v-bind:class="{ 'md-input-invalid': !can }")
+            md-input-container
               md-icon add
               label {{ 'resource.quantity' | i18n }}
               md-input(type="number", v-model.number="quantity", min="0", v-bind:max="selected.PlayerShip.quantity", required)
-              span.md-error {{ 'resource.insufficient' | i18n }}
             md-input-container
               md-icon apps
               label {{ 'resource.metal' | i18n }}
@@ -35,7 +34,7 @@
             md-button.md-dense.md-accent(type="submit", v-bind:disabled="!has") {{ 'button.sell' | i18n }}
 
     md-dialog(ref='construct')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         form(v-on:submit.stop.prevent="build()")
           md-card-header
             .md-title
@@ -73,9 +72,9 @@
           md-progress(v-bind:md-progress="ship.aim")
           md-progress(v-bind:md-progress="ship.evasion")
           md-progress(v-bind:md-progress="ship.cargo")
-        md-card-content.center
+        md-card-content
           span {{ ship.description | i18n }}
-        md-card-content.center
+        md-card-content
           md-chip {{ ship.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip {{ ship.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip {{ ship.oil | format }} {{ 'resource.oil' | i18n }}

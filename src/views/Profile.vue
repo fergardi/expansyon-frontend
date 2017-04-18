@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref='info')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title {{ selected.name | i18n }}
         md-card-content
@@ -11,7 +11,7 @@
           md-button.md-dense.md-accent(v-on:click.native="close()") {{ 'button.close' | i18n }}
 
     md-dialog(ref='confirm')
-      md-card.md-primary
+      md-card.md-primary.card
         md-card-header
           .md-title Confirm
         md-card-content
@@ -26,9 +26,9 @@
           .md-title {{ achievement.name | i18n }}
         md-card-media
           img(v-bind:src="achievement.image")
-        md-card-content.center
+        md-card-content
           span {{ achievement.description }}
-        md-card-content.center
+        md-card-content
           md-chip.pink {{ achievement.aether | format }} {{ 'resource.aether' | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

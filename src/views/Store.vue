@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref='confirm')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title
             span {{ selected.name | i18n }}
@@ -26,7 +26,7 @@
             md-chip {{ 1 | format }}
         md-card-media
           img(v-bind:src="relic.image")
-        md-card-content.center
+        md-card-content
           md-chip(v-if="relic.level > 0") {{ relic.level | format }} {{ 'resource.level' | i18n }}
           md-chip(v-if="relic.experience > 0") {{ relic.experience | format }} {{ 'resource.experience' | i18n }}
           md-chip(v-if="relic.planet") {{ 'resource.planet' | i18n }}
@@ -40,9 +40,9 @@
           md-chip(v-if="relic.metal > 0") {{ relic.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip(v-if="relic.crystal > 0") {{ relic.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip(v-if="relic.oil > 0") {{ relic.oil | format }} {{ 'resource.oil' | i18n }}
-        md-card-content.center
+        md-card-content
           span {{ relic.description | i18n }}
-        md-card-content.center
+        md-card-content
           md-chip.pink {{ relic.aether | format }} {{ 'resource.aether' | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

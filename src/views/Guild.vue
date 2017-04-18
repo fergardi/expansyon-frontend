@@ -2,7 +2,7 @@
   md-table-card
 
     md-dialog(ref='confirm')
-      md-card.md-primary
+      md-card.md-primary.card
         md-card-header
           .md-title {{ 'dialog.confirm.title' | i18n }}
         md-card-content
@@ -12,7 +12,7 @@
           md-button.md-dense.md-accent(v-on:click.native="leave()") {{ 'button.confirm' | i18n }}
 
     md-dialog(ref='info')
-      md-card.md-primary.grey
+      md-card.md-primary.card.grey
         md-card-header
           .md-title
             span {{ selected.name }}

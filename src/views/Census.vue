@@ -2,7 +2,7 @@
   md-table-card
 
     md-dialog(ref="info")
-      md-card.md-primary(v-bind:class="color(selected)")
+      md-card.md-primary.card(v-bind:class="color(selected)")
         md-card-header
           .md-title {{ selected.name }}
         md-card-media

@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref='confirm')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title
             span {{ selected.name }}
@@ -35,9 +35,9 @@
           md-progress(v-bind:md-progress="abs(referendum.attack)", v-bind:class="referendum.attack >= 0 ? 'green' : 'red'")
           md-progress(v-bind:md-progress="abs(referendum.defense)", v-bind:class="referendum.defense >= 0 ? 'green' : 'red'")
           md-progress(v-bind:md-progress="abs(referendum.speed)", v-bind:class="referendum.speed >= 0 ? 'green' : 'red'")
-        md-card-content.center
+        md-card-content
           span {{ referendum.description | i18n }}
-        md-card-content.center
+        md-card-content
           md-chip.pink {{ referendum.aether | format }} {{ 'resource.aether' | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

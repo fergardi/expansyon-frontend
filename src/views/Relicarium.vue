@@ -2,7 +2,7 @@
   md-layout
 
     md-dialog(ref='sale')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         form(v-on:submit.stop.prevent="sell()")
           md-card-header
             .md-title
@@ -35,7 +35,7 @@
             md-button.md-dense.md-accent(type="submit", v-bind:disabled="!has") {{ 'button.sell' | i18n }}
 
     md-dialog(ref='enable')
-      md-card.md-primary(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title
             span {{ selected.name | i18n }}
@@ -50,7 +50,7 @@
           md-button.md-dense.md-accent(v-on:click.native="confirm()") {{ 'button.activate' | i18n }}
 
     md-dialog(ref='confirm')
-      md-card.md-primary
+      md-card.md-primary.card
         md-card-header
           .md-title {{ 'dialog.confirm.title' | i18n }}
         md-card-content
@@ -68,7 +68,7 @@
             md-chip {{ relic.PlayerRelic.quantity | format }}
         md-card-media
           img(v-bind:src="relic.image")
-        md-card-content.center
+        md-card-content
           md-chip(v-if="relic.level > 0") {{ relic.level | format }} {{ 'resource.level' | i18n }}
           md-chip(v-if="relic.experience > 0") {{ relic.experience | format }} {{ 'resource.experience' | i18n }}
           md-chip(v-if="relic.planet") {{ 'resource.planet' | i18n }}
@@ -81,7 +81,7 @@
           md-chip(v-if="relic.crystal > 0") {{ relic.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip(v-if="relic.oil > 0") {{ relic.oil | format }} {{ 'resource.oil' | i18n }}
           md-chip.pink(v-if="relic.aether > 0") {{ relic.aether | format }} {{ 'resource.aether' | i18n }}
-        md-card-content.center
+        md-card-content
           span {{ relic.description | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

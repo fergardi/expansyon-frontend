@@ -2,7 +2,7 @@
   md-table-card
 
     md-dialog(ref='report')
-      md-card.md-primary
+      md-card.md-primary.card
         md-card-header
           .md-title Manouver
         md-card-content
@@ -12,7 +12,7 @@
           md-button.md-dense.md-accent(v-on:click.native="confirm()") {{ 'button.retreat' | i18n }}
 
     md-dialog(ref='message')
-      md-card.md-primary
+      md-card.md-primary.card
         md-card-header
           .md-title {{ selected.subject }}
         md-card-content
@@ -26,7 +26,7 @@
           md-button.md-dense.md-accent(v-on:click.native="reply()") {{ 'button.reply' | i18n }}
 
     md-dialog(ref='confirm')
-      md-card.md-primary
+      md-card.md-primary.card
         md-card-header
           .md-title {{ 'dialog.confirm.title' | i18n }}
         md-card-content
