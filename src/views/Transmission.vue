@@ -36,8 +36,8 @@
           md-button.md-dense.md-accent(v-on:click.native="remove()") {{ 'button.accept' | i18n }}
 
     md-tabs(md-fixed)
-
       md-tab#battles.no-padding(v-bind:md-label="$t('tab.battle')")
+
         md-table(md-sort="end", md-sort-type="desc", v-on:sort="order")
           md-table-header
             md-table-row
@@ -54,7 +54,7 @@
 
             md-table-row(v-if="!battlesOrdered.length")
               md-table-cell {{ 'filter.nothing' | i18n }}
-      
+
       md-tab#received.no-padding(v-bind:md-label="$t('tab.received')")
 
         md-table(md-sort="datetime", md-sort-type="desc", v-on:sort="order")
@@ -75,7 +75,7 @@
 
             md-table-row(v-if="!receivedOrdered.length")
               md-table-cell {{ 'filter.nothing' | i18n }}
-
+    //
       md-tab#sent.no-padding(v-bind:md-label="$t('tab.sent')")
 
         md-table(md-sort="datetime", md-sort-type="desc", v-on:sort="order")

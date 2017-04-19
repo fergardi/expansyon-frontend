@@ -29,7 +29,7 @@
       md-list.md-dense.scrollcable
 
         md-subheader {{ 'subtitle.economy' | i18n }}
-        md-list-item
+        //md-list-item
           router-link(exact, to="/empire", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary equalizer
@@ -118,7 +118,8 @@
               md-icon.md-primary group
             span {{ 'title.census' | i18n }}
             md-chip {{ player.census | format }}
-        md-list-item
+      
+        //md-list-item
           router-link(exact, to="/guild", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary security
