@@ -88,6 +88,8 @@
           'https://image.flaticon.com/icons/svg/167/167347.svg',
           'https://image.flaticon.com/icons/svg/124/124567.svg'
         ],
+        lat: [-45, 0, 45],
+        lng: [-90, 0, 90],
         fighter: 0,
         cruiser: 0,
         bomber: 0
@@ -132,6 +134,20 @@
             })
           }
         }).addTo(this.map)
+        // warps
+        /*
+        for (var i = 0; i < 4; i++) {
+          this.map.addLayer(L.marker([0, 0], {
+            icon: L.icon({
+              iconUrl: 'https://image.flaticon.com/icons/svg/124/124585.svg',
+              iconSize: [50, 50],
+              iconAnchor: [50, 50]
+            })
+          }).on('click', (ev) => {
+            this.map.setView([90, 90], this.zoom)
+          }))
+        }
+        */
       },
       refresh () {
         this.system.eachLayer((layer) => {
