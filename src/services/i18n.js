@@ -501,8 +501,8 @@ const translation = {
         name: 'Oil',
         description: 'Description'
       },
-      nano: {
-        name: 'Nanotechnology',
+      zoom: {
+        name: 'Depth',
         description: 'Description'
       },
       blaster: {
@@ -1089,9 +1089,9 @@ const translation = {
         name: 'Combustible',
         description: 'Aumenta en +10% la producción de Combustible'
       },
-      nano: {
-        name: 'Nanotecnología',
-        description: 'Aumenta en +10% la reconstrucción de Edificios'
+      zoom: {
+        name: 'Profundidad',
+        description: 'Aumenta en +10% el zoom en Galaxia'
       },
       blaster: {
         name: 'Torreta',
@@ -1126,7 +1126,7 @@ const translation = {
         description: 'Aumenta en +10% el Ataque al defender'
       },
       size: {
-        name: 'Terraformación',
+        name: 'Terraformar',
         description: 'Aumenta en +10% la cantidad de Espacio'
       }
     },
