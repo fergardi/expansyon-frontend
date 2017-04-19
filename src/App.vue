@@ -614,7 +614,7 @@
         height 140px
         padding 10px
     .md-card-actions
-      text-align center
+      justify-content space-around
       padding 16px
 
   // snackbar

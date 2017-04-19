@@ -5,12 +5,12 @@
       md-card.md-primary.card(v-bind:class="color(selected)")
         md-card-header
           .md-title {{ selected.name }}
-        md-card-media
+        //md-card-media
           img(v-bind:src="selected.image")
         md-card-content
           md-chip {{ selected.Planets.length | format }} {{ 'resource.planets' | i18n }}
           md-chip {{ selected.influence | format }} {{ 'resource.influence' | i18n }}
-          md-chip(v-if="selected.Guild") {{ selected.Guild.name | format }}
+          //md-chip(v-if="selected.Guild") {{ selected.Guild.name | format }}
         md-card-actions
           md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
         //
