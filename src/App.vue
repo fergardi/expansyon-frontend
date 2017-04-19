@@ -496,6 +496,9 @@
       overflow hidden
       .md-tabs-wrapper
         overflow hidden
+    .md-tabs-content.full
+      height 100vh
+      overflow-y auto
   .scrollable
     overflow-y auto
     height 100%

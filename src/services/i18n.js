@@ -630,7 +630,7 @@ const translation = {
         sale: 'Planeta a la venta'
       },
       temple: {
-        new: 'Hay nuevos precios en el templo',
+        new: 'Hay nuevos precios en el Templo',
         ok: 'Ingreso correcto',
         error: 'Ha ocurrido un error'
       },
@@ -640,28 +640,28 @@ const translation = {
         error: 'Ha ocurrido un error'
       },
       store: {
-        new: 'Hay nuevas ofertas en la tienda',
+        new: 'Hay nuevas ofertas en la Tienda',
         ok: 'Compra finalizada',
         error: 'Ha ocurrido un error'
       },
       market: {
-        new: 'Hay nuevas ofertas en el mercado',
+        new: 'Hay nuevas ofertas en el Mercado',
         ok: 'Compra finalizada',
         regret: 'Oferta cancelada',
         error: 'Ha ocurrido un error'
       },
       galaxy: {
-        new: 'Hay nuevos planetas en la galaxia',
+        new: 'Hay nuevos planetas en la Galaxia',
         ok: 'Ataque enviado',
         error: 'Ha ocurrido un error'
       },
       cantina: {
-        new: 'Hay nuevas misiones en la cantina',
+        new: 'Hay nuevas misiones en la Cantina',
         ok: 'Mision iniciada',
         error: 'Ha ocurrido un error'
       },
       senate: {
-        new: 'Hay nuevos referendums en el senado',
+        new: 'Hay nuevos referendums en el Senado',
         ok: 'Votación realizada',
         error: 'Ha ocurrido un error'
       },

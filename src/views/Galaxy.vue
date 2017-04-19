@@ -107,17 +107,16 @@
       universe () {
         this.map = L.map('map', {
           zoomControl: false
-        }).setView([0, 0], 6)
+        }).setView([-90 + Math.random() * 180, -180 + Math.random() * 360], this.zoom)
         var bounds = new L.LatLngBounds(new L.LatLng(90, -180), new L.LatLng(-90, 180))
-        L.tileLayer('http://psousa.net/demos/zoom-images/eso/{z}/{x}/{y}.jpg', {
-          center: bounds.getCenter(),
-          minZoom: 2,
-          maxZoom: 6,
+        L.tileLayer('//localhost:34567/galaxy/{z}/{x}/{y}.png', {
+          minZoom: this.zoom,
+          maxZoom: this.zoom,
           tms: true,
           maxBounds: bounds
         }).addTo(this.map)
-        this.map.on('drag', () => {
-          this.map.panInsideBounds(bounds, { animate: false })
+        this.map.on('moveend', () => {
+          this.map.panInsideBounds(bounds, { animate: true })
         })
         this.system = L.markerClusterGroup({
           showCoverageOnHover: false,
@@ -168,6 +167,7 @@
       },
       select (planet) {
         this.selected = planet
+        this.map.setView([planet.lat, planet.lng], this.zoom)
         this.info()
       },
       attack () {
@@ -214,6 +214,9 @@
       player () {
         return store.state.player
       },
+      zoom () {
+        return 7 - this.player.zoom
+      },
       hasFighter () {
         return this.fighter <= this.player.fighter
       },
@@ -245,6 +248,7 @@
   #map
     width 100%
     height 100%
+    background-color rgba(255,0,0,0.0)
   .system
     display flex
     .planet
