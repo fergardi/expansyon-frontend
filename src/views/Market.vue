@@ -57,7 +57,8 @@
           .orbit(v-if="item(sale).moon || item(sale).station")
             img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="item(sale).moon")
             img(src="https://image.flaticon.com/icons/svg/139/139726.svg", v-show="item(sale).station")
-        md-card-content(v-if="sale.Planet && (item(sale).moon || item(sale).station)")
+        md-card-content(v-if="sale.Planet && (item(sale).moon || item(sale).station || item(sale).main)")
+          md-chip(v-if="item(sale).main") {{ 'resource.main' | i18n }}
           md-chip(v-if="item(sale).moon") {{ 'resource.moon' | i18n }}
           md-chip(v-if="item(sale).station") {{ 'resource.station' | i18n }}
         md-card-content.no-padding(v-if="sale.Planet")

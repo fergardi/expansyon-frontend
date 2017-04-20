@@ -938,59 +938,59 @@ const translation = {
     relic: {
       experience: {
         name: 'Experiencia',
-        description: 'Descripción'
+        description: 'Produce una cantidad aleatoria de Experiencia'
       },
       level: {
         name: 'Nivel',
-        description: 'Descripción'
+        description: 'Produce un nuevo nivel'
       },
       metal: {
         name: 'Metal',
-        description: 'Descripción'
+        description: 'Produce una cantidad aleatoria de Metal'
       },
       crystal: {
         name: 'Cristal',
-        description: 'Descripción'
+        description: 'Produce una cantidad aleatoria de Cristal'
       },
       oil: {
         name: 'Combustible',
-        description: 'Descripción'
+        description: 'Produce una cantidad aleatoria de Combustible'
       },
       resources: {
         name: 'Recursos',
-        description: 'Descripción'
+        description: 'Produce una cantidad aleatoria de Recursos'
       },
       planet: {
         name: 'Planeta',
-        description: 'Descripción'
+        description: 'Produce un nuevo Planeta aleatorio bajo tu control'
       },
       ship: {
         name: 'Naves',
-        description: 'Descripción'
+        description: 'Produce una cantidad aleatoria de Naves bajo tu control'
       },
       building: {
         name: 'Edificios',
-        description: 'Descripción'
+        description: 'Produce una cantidad aleatoria de Edificios bajo tu control'
       },
       tower: {
         name: 'Torres',
-        description: 'Descripción'
+        description: 'Produce una cantidad aleatoria de Torres bajo tu control'
       },
       moon: {
         name: 'Luna',
-        description: 'Descripción'
+        description: 'Produce una Luna (+10 a cada recurso) en un Planeta sin luna bajo tu control'
       },
       station: {
         name: 'Estación',
-        description: 'Descripción'
+        description: 'Produce una Estación (+10 a cada recurso) en un Planeta sin estación bajo tu control'
       },
       reset: {
         name: 'Reiniciar',
-        description: 'Descripción'
+        description: 'Reinicia el árbol de habilidades (sus 3 ramas) y devuelve todos sus puntos'
       },
       main: {
         name: 'Principal',
-        description: 'Descripción'
+        description: 'Convierte en Principal (no atacable) un Planeta no principal bajo tu control.¡'
       }
     },
     tree: {
@@ -1010,7 +1010,7 @@ const translation = {
     skill: {
       galaxy: {
         name: 'Galaxia',
-        description: 'Aumenta en +1 los planetas en la Galaxia'
+        description: 'Aumenta en +1 los Planetas en la Galaxia'
       },
       fighter: {
         name: 'Caza',
@@ -1066,15 +1066,15 @@ const translation = {
       },
       furnace: {
         name: 'Forja',
-        description: 'Aumenta en +10% la construcción de Forjas'
+        description: 'Aumenta en +10% la producción de Forjas'
       },
       factory: {
         name: 'Fábrica',
-        description: 'Aumenta en +10% la construcción de Fábricas'
+        description: 'Aumenta en +10% la producción de Fábricas'
       },
       refinery: {
         name: 'Refinería',
-        description: 'Aumenta en +10% la construcción de Refinerías'
+        description: 'Aumenta en +10% la producción de Refinerías'
       },
       metal: {
         name: 'Metal',
@@ -1090,35 +1090,35 @@ const translation = {
       },
       zoom: {
         name: 'Zoom',
-        description: 'Aumenta en +5% el zoom en Galaxia'
+        description: 'Aumenta en +5% el Zoom en Galaxia'
       },
       blaster: {
         name: 'Torreta',
-        description: 'Aumenta en +10% la construcción de Torretas'
+        description: 'Aumenta en +10% la producción de Torretas'
       },
       railgun: {
         name: 'Repetidor',
-        description: 'Aumenta en +10% la construcción de Repetidores'
+        description: 'Aumenta en +10% la producción de Repetidores'
       },
       cannon: {
         name: 'Cañón',
-        description: 'Aumenta en +10% la construcción de Cañones'
+        description: 'Aumenta en +10% la producción de Cañones'
       },
       plant: {
         name: 'Planta',
-        description: 'Aumenta en +10% la construcción de Plantas'
+        description: 'Aumenta en +10% la producción de Plantas'
       },
       barrier: {
         name: 'Barrera',
-        description: 'Aumenta en +10% la construcción de Barreras'
+        description: 'Aumenta en +10% la producción de Barreras'
       },
       warehouse: {
         name: 'Almacén',
-        description: 'Aumenta en +10% la construcción de Almacenes'
+        description: 'Aumenta en +10% la producción de Almacenes'
       },
       energy: {
         name: 'Energía',
-        description: 'Aumenta en +10% la cantidad de Energía'
+        description: 'Aumenta en +10% la producción de Energía'
       },
       counter: {
         name: 'Contraataque',
@@ -1126,7 +1126,7 @@ const translation = {
       },
       size: {
         name: 'Terraformar',
-        description: 'Aumenta en +10% la cantidad de Espacio'
+        description: 'Aumenta en +10% la producción de Tamaño'
       }
     },
     mission: {
