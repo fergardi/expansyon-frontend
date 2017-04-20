@@ -180,7 +180,8 @@ const translation = {
       splash: 'Splash',
       store: 'Store',
       temple: 'Temple',
-      transmission: 'Transmission'
+      transmission: 'Transmission',
+      battle: 'Battle'
     },
     subtitle: {
       economy: 'Economy',
@@ -538,15 +539,12 @@ const translation = {
         description: 'Description'
       },
       size: {
-        name: 'Terraforming',
+        name: 'Terraform',
         description: 'Description'
       }
     },
     mission: {
-      example: {
-        name: 'Example',
-        description: 'Description'
-      }
+      example: 'Example'
     },
     achievement: {
       scavenger: {
@@ -768,7 +766,8 @@ const translation = {
       splash: 'Splash',
       store: 'Tienda',
       temple: 'Templo',
-      transmission: 'Transmisiones'
+      transmission: 'Transmisiones',
+      battle: 'Batalla'
     },
     subtitle: {
       economy: 'Economía',
@@ -1131,10 +1130,7 @@ const translation = {
       }
     },
     mission: {
-      example: {
-        name: 'Ejemplo',
-        description: 'Descripción'
-      }
+      example: 'Ejemplo'
     },
     achievement: {
       scavenger: {

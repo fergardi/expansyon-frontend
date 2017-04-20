@@ -35,15 +35,14 @@
       md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title
-            span {{ selected.name }}
-            md-chip {{ selected.total | format }}
+            span {{ selected.name | i18n }}
         md-card-media
           img(v-bind:src="selected.image")
         md-card-content
           md-chip.grey(v-for="ship in selected.Ships") {{ ship.MissionShip.quantity | format }} {{ ship.name | i18n }}
         md-card-actions
           md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
-          md-button.md-dense.md-accent(v-on:click.native="battle()") {{ 'button.attack' | i18n }}
+          md-button.md-dense.md-accent(v-on:click.native="fight()") {{ 'button.attack' | i18n }}
 
     md-dialog(ref="battle")
       md-card.md-primary.card(v-bind:class="selected.class")
@@ -51,13 +50,41 @@
           md-card-header
             .md-title
               span {{ selected.name }}
-              md-chip {{ selected.total }}
+              md-chip {{ selected.total | format }}
           md-card-media.system
             .planet
               img(v-bind:src="selected.image")
             .orbit(v-if="selected.moon || selected.station")
               img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="selected.moon")
               img(src="https://image.flaticon.com/icons/svg/139/139726.svg", v-show="selected.station")
+          md-card-content
+            md-input-container(v-bind:class="{ 'md-input-invalid': !hasFighter }")
+              md-icon send
+              label {{ 'ship.fighter.name' | i18n }} ({{ (player.fighter - fighter) | format }})
+              md-input(type="number", v-model="fighter", min="0", v-bind:max="player.fighter", required)
+              span.md-error {{ 'resource.insufficient' | i18n }}
+            md-input-container(v-bind:class="{ 'md-input-invalid': !hasCruiser }")
+              md-icon toys
+              label {{ 'ship.cruiser.name' | i18n }} ({{ (player.cruiser - cruiser) | format }})
+              md-input(type="number", v-model="cruiser", min="0", v-bind:max="player.cruiser", required)
+              span.md-error {{ 'resource.insufficient' | i18n }}
+            md-input-container(v-bind:class="{ 'md-input-invalid': !hasBomber }")
+              md-icon bubble_chart
+              label {{ 'ship.bomber.name' | i18n }} ({{ (player.bomber - bomber) | format }})
+              md-input(type="number", v-model="bomber", min="0", v-bind:max="player.bomber", required)
+              span.md-error {{ 'resource.insufficient' | i18n }}
+          md-card-actions
+            md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
+            md-button.md-dense.md-accent(type="submit", v-bind:disabled="!can") {{ 'button.attack' | i18n }}
+
+    md-dialog(ref="fight")
+      md-card.md-primary.card(v-bind:class="selected.class")
+        form(v-on:submit.stop.prevent="quest()")
+          md-card-header
+            .md-title
+              span {{ selected.name | i18n }}
+          md-card-media
+            img(v-bind:src="selected.image")
           md-card-content
             md-input-container(v-bind:class="{ 'md-input-invalid': !hasFighter }")
               md-icon send
@@ -93,8 +120,10 @@
       return {
         map: null,
         system: null,
+        missions: [],
         selected: {
-          Player: {}
+          Player: {},
+          Ships: []
         },
         galaxies: [
           'https://image.flaticon.com/icons/svg/190/190279.svg',
@@ -173,33 +202,39 @@
         })
       },
       refresh () {
-        // remove all markers
-        this.system.eachLayer((layer) => {
-          this.system.removeLayer(layer)
-        })
-        // add all planets
-        this.filtered.forEach((planet) => {
-          this.system.addLayer(L.marker([planet.lat, planet.lng], {
-            icon: L.icon({
-              iconUrl: planet.image,
-              iconSize: [26, 26],
-              iconAnchor: [13, 13]
-            })
-          }).on('click', (ev) => {
-            this.select(planet)
-          }))
-        })
-        // add all missions
-        this.player.Missions.forEach((mission) => {
-          this.system.addLayer(L.marker([mission.lat, mission.lng], {
-            icon: L.icon({
-              iconUrl: mission.image,
-              iconSize: [26, 26],
-              iconAnchor: [13, 13]
-            })
-          }).on('click', (ev) => {
-            this.choose(mission)
-          }))
+        this.close()
+        // get all missions
+        api.getMissions()
+        .then((missions) => {
+          this.missions = missions
+          // remove all markers
+          this.system.eachLayer((layer) => {
+            this.system.removeLayer(layer)
+          })
+          // add all planets
+          this.filtered.forEach((planet) => {
+            this.system.addLayer(L.marker([planet.lat, planet.lng], {
+              icon: L.icon({
+                iconUrl: planet.image,
+                iconSize: [26, 26],
+                iconAnchor: [13, 13]
+              })
+            }).on('click', (ev) => {
+              this.select(planet)
+            }))
+          })
+          // add all missions
+          this.missions.forEach((mission) => {
+            this.system.addLayer(L.marker([mission.lat, mission.lng], {
+              icon: L.icon({
+                iconUrl: mission.image,
+                iconSize: [26, 26],
+                iconAnchor: [13, 13]
+              })
+            }).on('click', (ev) => {
+              this.choose(mission)
+            }))
+          })
         })
       },
       planet () {
@@ -212,10 +247,15 @@
         this.close()
         this.$refs['battle'].open()
       },
+      fight () {
+        this.close()
+        this.$refs['fight'].open()
+      },
       close () {
         this.$refs['planet'].close()
         this.$refs['mission'].close()
         this.$refs['battle'].close()
+        this.$refs['fight'].close()
       },
       clear () {
         this.fighter = 0
@@ -248,6 +288,28 @@
         .catch((error) => {
           console.error(error)
           notification.error('notification.galaxy.error')
+        })
+        .then(() => {
+          this.clear()
+          this.close()
+        })
+      },
+      quest () {
+        var battle = {
+          PlayerId: store.state.player.id,
+          MissionId: this.selected.id,
+          PlanetId: null,
+          fighter: this.fighter,
+          cruiser: this.cruiser,
+          bomber: this.bomber
+        }
+        api.startBattle(battle)
+        .then((battle) => {
+          notification.success('notification.mission.ok')
+        })
+        .catch((error) => {
+          console.error(error)
+          notification.error('notification.mission.error')
         })
         .then(() => {
           this.clear()
@@ -312,7 +374,7 @@
   #map
     width 100%
     height 100%
-    background-color rgba(255,0,0,0.0)
+    background-color rgba(255, 0, 0, 0.0)
   .system
     display flex
     .planet

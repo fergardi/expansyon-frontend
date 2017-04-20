@@ -26,14 +26,9 @@
           md-avatar.md-large
             img(src="https://image.flaticon.com/icons/svg/124/124582.svg")
           h2.md-title {{ 'title.left' | i18n }}
-      md-list.md-dense.scrollcable
+      md-list.md-dense.scrollable
 
         md-subheader {{ 'subtitle.economy' | i18n }}
-        //md-list-item
-          router-link(exact, to="/empire", v-on:click.native="collapse()")
-            md-avatar
-              md-icon.md-primary equalizer
-            span {{ 'title.empire' | i18n }}
         md-list-item
           router-link(exact, to="/planetarium", v-on:click.native="collapse()")
             md-avatar
@@ -60,12 +55,6 @@
               md-icon.md-primary public
             span {{ 'title.galaxy' | i18n }}
             md-chip {{ 10 + player.galaxy | format }}
-        //md-list-item
-          router-link(exact, to="/cantina", v-on:click.native="collapse()")
-            md-avatar
-              md-icon.md-primary local_bar
-            span {{ 'title.cantina' | i18n }}
-            md-chip {{ player.cantina | format }}
         md-list-item
           router-link(exact, to="/relicarium", v-on:click.native="collapse()")
             md-avatar
