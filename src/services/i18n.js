@@ -807,106 +807,106 @@ const translation = {
       level: 'Nivel',
       reset: 'Reiniciar',
       main: 'Principal',
-      insufficient: 'Sin recursos, cantidad, espacio o energía'
+      insufficient: 'Sin Recursos, Cantidad, Espacio o Energía'
     },
     planet: {
       rich: {
         name: 'Planeta rico',
-        description: 'Descripción'
+        description: 'Planeta muy raro y rico en todos los recursos, ideal para avanzar económicamente'
       },
       wasted: {
         name: 'Planeta yermo',
-        description: 'Descripción'
+        description: 'Planeta muerto, yermo, desolado y sin apenas recursos, pero podría ser de utilidad'
       },
       metal: {
         name: 'Planeta metálico',
-        description: 'Descripción'
+        description: 'Planeta metálico, ideal para aumentar la producción de Metal'
       },
       crystal: {
         name: 'Planeta cristalino',
-        description: 'Descripción'
+        description: 'Planeta cristalino, ideal para aumentar la producción de Cristal'
       },
       oil: {
         name: 'Planeta aceitoso',
-        description: 'Descripción'
+        description: 'Planeta aceitoso, ideal para aumentar la producción de Combustible'
       },
       energy: {
         name: 'Planeta enérgico',
-        description: 'Descripción'
+        description: 'Planeta enérgico, ideal para aumentar la producción de Energía'
       },
       influence: {
         name: 'Planeta poderoso',
-        description: 'Descripción'
+        description: 'Planeta poderoso, ideal para aumentar la producción de Influencia'
       },
       size: {
         name: 'Planeta enorme',
-        description: 'Descripción'
+        description: 'Planeta enorme, ideal para aumentar la producción de Tamaño'
       }
     },
     ship: {
       fighter: {
         name: 'Caza',
-        description: 'Descripción'
+        description: 'Nave débil y rápida, ideal para destruir Naves enemigas'
       },
       cruiser: {
         name: 'Crucero',
-        description: 'Descripción'
+        description: 'Nave equilibrada, ideal para destruir Defensas enemigas'
       },
       bomber: {
         name: 'Bombardero',
-        description: 'Descripción'
+        description: 'Nave fuerte y lenta, ideal para destruir Edificios enemigas'
       },
       orbiter: {
         name: 'Orbitador',
-        description: 'Descripción'
+        description: 'Nave débil y lenta, ideal para aumentar la producción de Energía'
       },
       carrier: {
         name: 'Transportador',
-        description: 'Descripción'
+        description: 'Nave débil y lenta, ideal para robar Recursos tras una batalla'
       },
       recycler: {
         name: 'Reciclador',
-        description: 'Descripción'
+        description: 'Nave débil y lenta, ideal para reciclar Recursos tras una batalla'
       }
     },
     building: {
       furnace: {
         name: 'Forja',
-        description: 'Descripción'
+        description: 'Edificio orientado a aumentar la producción de Metal'
       },
       factory: {
         name: 'Factoría',
-        description: 'Descripción'
+        description: 'Edificio orientado a aumentar la producción de Cristal'
       },
       refinery: {
         name: 'Refinería',
-        description: 'Descripción'
+        description: 'Edificio orientado a aumentar la producción de Combustible'
       },
       plant: {
         name: 'Planta',
-        description: 'Descripción'
+        description: 'Edificio orientado a aumentar la producción de Energía'
       },
       barrier: {
         name: 'Barrera',
-        description: 'Descripción'
+        description: 'Edificio orientado a proteger los Edificios y las Torres'
       },
       warehouse: {
         name: 'Almacén',
-        description: 'Descripción'
+        description: 'Edificio orientado a proteger los Recursos'
       }
     },
     tower: {
       blaster: {
         name: 'Torreta',
-        description: 'Descripción'
+        description: 'Defensa débil y rápida, ideal para destruir Cazas enemigos'
       },
       railgun: {
         name: 'Repetidor',
-        description: 'Descripción'
+        description: 'Defensa equilibrada, ideal para destruir Cruceros enemigos'
       },
       cannon: {
         name: 'Cañón',
-        description: 'Descripción'
+        description: 'Defensa fuerte y lenta, ideal para destruir Bombarderos enemigos'
       }
     },
     faction: {

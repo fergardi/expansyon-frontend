@@ -168,7 +168,7 @@
         })
         // fill with own tilelayer
         L.tileLayer('//localhost:34567/galaxy/{z}/{x}/{y}.png', {
-          minZoom: 2, // 7 - this.zoom
+          minZoom: 7 - this.zoom,
           maxZoom: 7,
           tms: true,
           maxBounds: bounds
