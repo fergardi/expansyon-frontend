@@ -7,7 +7,6 @@ import VueInternationalization from 'vue-i18n'
 import moment from 'moment'
 
 import App from './App.vue'
-import Empire from './views/Empire.vue'
 import Planetarium from './views/Planetarium.vue'
 import Market from './views/Market.vue'
 import Store from './views/Store.vue'
@@ -16,7 +15,6 @@ import Hangar from './views/Hangar.vue'
 import Infrastructure from './views/Infrastructure.vue'
 import Defense from './views/Defense.vue'
 import Galaxy from './views/Galaxy.vue'
-import Cantina from './views/Cantina.vue'
 import Relicarium from './views/Relicarium.vue'
 import Temple from './views/Temple.vue'
 import Senate from './views/Senate.vue'
@@ -26,7 +24,6 @@ import Transmission from './views/Transmission.vue'
 import Profile from './views/Profile.vue'
 import Help from './views/Help.vue'
 import Login from './views/Login.vue'
-import Splash from './views/Splash.vue'
 
 import store from './vuex/store'
 import constants from './config/constants'
@@ -49,7 +46,6 @@ Vue.use(VueRouter)
 var router = new VueRouter({
   routes: [
     { path: '/', redirect: '/login' },
-    { path: '/empire', component: Empire, name: 'empire' },
     { path: '/planetarium', component: Planetarium, name: 'planetarium' },
     { path: '/market', component: Market, name: 'market' },
     { path: '/store', component: Store, name: 'store' },
@@ -58,7 +54,6 @@ var router = new VueRouter({
     { path: '/infrastructure', component: Infrastructure, name: 'infrastructure' },
     { path: '/defense', component: Defense, name: 'defense' },
     { path: '/galaxy', component: Galaxy, name: 'galaxy' },
-    { path: '/cantina', component: Cantina, name: 'cantina' },
     { path: '/relicarium', component: Relicarium, name: 'relicarium' },
     { path: '/temple', component: Temple, name: 'temple' },
     { path: '/senate', component: Senate, name: 'senate' },
@@ -68,14 +63,12 @@ var router = new VueRouter({
     { path: '/profile', component: Profile, name: 'profile' },
     { path: '/help', component: Help, name: 'help' },
     { path: '/login', component: Login, name: 'login' },
-    { path: '/splash', component: Splash, name: 'splash' },
     { path: '*', redirect: '/login' }
   ]
 })
 
 // secured routes
 const security = [
-  'empire',
   'planetarium',
   'market',
   'store',
@@ -84,7 +77,6 @@ const security = [
   'infrastructure',
   'defense',
   'galaxy',
-  'cantina',
   'relicarium',
   'temple',
   'senate',

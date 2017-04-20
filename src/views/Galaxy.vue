@@ -1,105 +1,105 @@
 <template lang="pug">
   md-layout
 
-    md-dialog(ref="planet")
-      md-card.md-primary.card(v-bind:class="selected.class")
+    md-dialog(ref="target")
+      md-card.md-primary.card(v-bind:class="planet.class")
         md-card-header
           .md-title
-            span {{ selected.name }}
-            md-chip {{ selected.total | format }}
-          .md-title(v-if="owner(selected)")
-            md-chip(v-bind:class="faction(selected)") {{ owner(selected) }}
+            span {{ planet.name }}
+            md-chip {{ planet.total | format }}
+          .md-title(v-if="owner(planet)")
+            md-chip(v-bind:class="faction(planet)") {{ owner(planet) }}
         md-card-media.system
           .planet
-            img(v-bind:src="selected.image")
-          .orbit(v-if="selected.moon || selected.station")
-            img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="selected.moon")
-            img(src="https://image.flaticon.com/icons/svg/139/139726.svg", v-show="selected.station")
+            img(v-bind:src="planet.image")
+          .orbit(v-if="planet.moon || planet.station")
+            img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="planet.moon")
+            img(src="https://image.flaticon.com/icons/svg/139/139726.svg", v-show="planet.station")
         md-card-content.no-padding.center
-          md-progress(v-bind:md-progress="selected.metal")
-          md-progress(v-bind:md-progress="selected.crystal")
-          md-progress(v-bind:md-progress="selected.oil")
-          md-progress(v-bind:md-progress="selected.size")
-          md-progress(v-bind:md-progress="selected.energy")
-          md-progress(v-bind:md-progress="selected.influence")
-        md-card-content(v-if="selected.moon || selected.station")
-          md-chip(v-if="selected.moon") {{ 'resource.moon' | i18n }}
-          md-chip(v-if="selected.station") {{ 'resource.station' | i18n }}
+          md-progress(v-bind:md-progress="planet.metal")
+          md-progress(v-bind:md-progress="planet.crystal")
+          md-progress(v-bind:md-progress="planet.oil")
+          md-progress(v-bind:md-progress="planet.size")
+          md-progress(v-bind:md-progress="planet.energy")
+          md-progress(v-bind:md-progress="planet.influence")
+        md-card-content(v-if="planet.moon || planet.station")
+          md-chip(v-if="planet.moon") {{ 'resource.moon' | i18n }}
+          md-chip(v-if="planet.station") {{ 'resource.station' | i18n }}
         md-card-content
-          span {{ selected.description | i18n }}
+          span {{ planet.description | i18n }}
         md-card-actions
           md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
           md-button.md-dense.md-accent(v-on:click.native="battle()") {{ 'button.attack' | i18n }}
 
-    md-dialog(ref="mission")
-      md-card.md-primary.card(v-bind:class="selected.class")
+    md-dialog(ref="adventure")
+      md-card.md-primary.card(v-bind:class="mission.class")
         md-card-header
           .md-title
-            span {{ selected.name | i18n }}
+            span {{ mission.name | i18n }}
         md-card-media
-          img(v-bind:src="selected.image")
+          img(v-bind:src="mission.image")
         md-card-content
-          md-chip.grey(v-for="ship in selected.Ships") {{ ship.MissionShip.quantity | format }} {{ ship.name | i18n }}
+          md-chip.grey(v-for="ship in mission.Ships") {{ ship.MissionShip.quantity | format }} {{ ship.name | i18n }}
         md-card-actions
           md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
           md-button.md-dense.md-accent(v-on:click.native="fight()") {{ 'button.attack' | i18n }}
 
     md-dialog(ref="battle")
-      md-card.md-primary.card(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="planet.class")
         form(v-on:submit.stop.prevent="attack()")
           md-card-header
             .md-title
-              span {{ selected.name }}
-              md-chip {{ selected.total | format }}
+              span {{ planet.name }}
+              md-chip {{ planet.total | format }}
           md-card-media.system
             .planet
-              img(v-bind:src="selected.image")
-            .orbit(v-if="selected.moon || selected.station")
-              img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="selected.moon")
-              img(src="https://image.flaticon.com/icons/svg/139/139726.svg", v-show="selected.station")
+              img(v-bind:src="planet.image")
+            .orbit(v-if="planet.moon || planet.station")
+              img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="planet.moon")
+              img(src="https://image.flaticon.com/icons/svg/139/139726.svg", v-show="planet.station")
           md-card-content
             md-input-container(v-bind:class="{ 'md-input-invalid': !hasFighter }")
               md-icon send
               label {{ 'ship.fighter.name' | i18n }} ({{ (player.fighter - fighter) | format }})
-              md-input(type="number", v-model="fighter", min="0", v-bind:max="player.fighter", required)
+              md-input(type="number", v-model.number="fighter", min="0", v-bind:max="player.fighter", required)
               span.md-error {{ 'resource.insufficient' | i18n }}
             md-input-container(v-bind:class="{ 'md-input-invalid': !hasCruiser }")
               md-icon toys
               label {{ 'ship.cruiser.name' | i18n }} ({{ (player.cruiser - cruiser) | format }})
-              md-input(type="number", v-model="cruiser", min="0", v-bind:max="player.cruiser", required)
+              md-input(type="number", v-model.number="cruiser", min="0", v-bind:max="player.cruiser", required)
               span.md-error {{ 'resource.insufficient' | i18n }}
             md-input-container(v-bind:class="{ 'md-input-invalid': !hasBomber }")
               md-icon bubble_chart
               label {{ 'ship.bomber.name' | i18n }} ({{ (player.bomber - bomber) | format }})
-              md-input(type="number", v-model="bomber", min="0", v-bind:max="player.bomber", required)
+              md-input(type="number", v-model.number="bomber", min="0", v-bind:max="player.bomber", required)
               span.md-error {{ 'resource.insufficient' | i18n }}
           md-card-actions
             md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
             md-button.md-dense.md-accent(type="submit", v-bind:disabled="!can") {{ 'button.attack' | i18n }}
 
     md-dialog(ref="fight")
-      md-card.md-primary.card(v-bind:class="selected.class")
+      md-card.md-primary.card(v-bind:class="mission.class")
         form(v-on:submit.stop.prevent="quest()")
           md-card-header
             .md-title
-              span {{ selected.name | i18n }}
+              span {{ mission.name | i18n }}
           md-card-media
-            img(v-bind:src="selected.image")
+            img(v-bind:src="mission.image")
           md-card-content
             md-input-container(v-bind:class="{ 'md-input-invalid': !hasFighter }")
               md-icon send
               label {{ 'ship.fighter.name' | i18n }} ({{ (player.fighter - fighter) | format }})
-              md-input(type="number", v-model="fighter", min="0", v-bind:max="player.fighter", required)
+              md-input(type="number", v-model.number="fighter", min="0", v-bind:max="player.fighter", required)
               span.md-error {{ 'resource.insufficient' | i18n }}
             md-input-container(v-bind:class="{ 'md-input-invalid': !hasCruiser }")
               md-icon toys
               label {{ 'ship.cruiser.name' | i18n }} ({{ (player.cruiser - cruiser) | format }})
-              md-input(type="number", v-model="cruiser", min="0", v-bind:max="player.cruiser", required)
+              md-input(type="number", v-model.number="cruiser", min="0", v-bind:max="player.cruiser", required)
               span.md-error {{ 'resource.insufficient' | i18n }}
             md-input-container(v-bind:class="{ 'md-input-invalid': !hasBomber }")
               md-icon bubble_chart
               label {{ 'ship.bomber.name' | i18n }} ({{ (player.bomber - bomber) | format }})
-              md-input(type="number", v-model="bomber", min="0", v-bind:max="player.bomber", required)
+              md-input(type="number", v-model.number="bomber", min="0", v-bind:max="player.bomber", required)
               span.md-error {{ 'resource.insufficient' | i18n }}
           md-card-actions
             md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
@@ -121,8 +121,11 @@
         map: null,
         system: null,
         missions: [],
-        selected: {
+        planet: {
           Player: {},
+          Ships: []
+        },
+        mission: {
           Ships: []
         },
         galaxies: [
@@ -150,6 +153,7 @@
     },
     sockets: {
       galaxy () {
+        // this.close()
         this.refresh()
       }
     },
@@ -197,12 +201,11 @@
               iconAnchor: [26, 26]
             })
           }).on('click', (ev) => {
-            this.map.setView(this.warps[Math.floor(Math.random() * this.warps.length)])
+            this.map.setView(this.warps[Math.floor(Math.random() * this.warps.length)], 7)
           }))
         })
       },
       refresh () {
-        this.close()
         // get all missions
         api.getMissions()
         .then((missions) => {
@@ -237,11 +240,11 @@
           })
         })
       },
-      planet () {
-        this.$refs['planet'].open()
+      target () {
+        this.$refs['target'].open()
       },
-      mission () {
-        this.$refs['mission'].open()
+      adventure () {
+        this.$refs['adventure'].open()
       },
       battle () {
         this.close()
@@ -252,8 +255,8 @@
         this.$refs['fight'].open()
       },
       close () {
-        this.$refs['planet'].close()
-        this.$refs['mission'].close()
+        this.$refs['target'].close()
+        this.$refs['adventure'].close()
         this.$refs['battle'].close()
         this.$refs['fight'].close()
       },
@@ -263,20 +266,20 @@
         this.bomber = 0
       },
       select (planet) {
-        this.selected = planet
+        this.planet = planet
         this.map.setView([planet.lat, planet.lng])
-        this.planet()
+        this.target()
       },
       choose (mission) {
-        this.selected = mission
+        this.mission = mission
         this.map.setView([mission.lat, mission.lng])
-        this.mission()
+        this.adventure()
       },
       attack () {
         var battle = {
           PlayerId: store.state.player.id,
           MissionId: null,
-          PlanetId: this.selected.id,
+          PlanetId: this.planet.id,
           fighter: this.fighter,
           cruiser: this.cruiser,
           bomber: this.bomber
@@ -297,7 +300,7 @@
       quest () {
         var battle = {
           PlayerId: store.state.player.id,
-          MissionId: this.selected.id,
+          MissionId: this.mission.id,
           PlanetId: null,
           fighter: this.fighter,
           cruiser: this.cruiser,
@@ -305,11 +308,11 @@
         }
         api.startBattle(battle)
         .then((battle) => {
-          notification.success('notification.mission.ok')
+          notification.success('notification.cantina.ok')
         })
         .catch((error) => {
           console.error(error)
-          notification.error('notification.mission.error')
+          notification.error('notification.cantina.error')
         })
         .then(() => {
           this.clear()

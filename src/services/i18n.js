@@ -221,6 +221,7 @@ const translation = {
       level: 'Level',
       reset: 'Reset',
       main: 'Main',
+      votes: 'Votes',
       insufficient: 'No resources, quantity, energy or space'
     },
     planet: {
@@ -807,6 +808,7 @@ const translation = {
       level: 'Nivel',
       reset: 'Reiniciar',
       main: 'Principal',
+      votes: 'Votos',
       insufficient: 'Sin Recursos, Cantidad, Espacio o Energía'
     },
     planet: {
@@ -854,7 +856,7 @@ const translation = {
       },
       bomber: {
         name: 'Bombardero',
-        description: 'Nave fuerte y lenta, ideal para destruir Edificios enemigas'
+        description: 'Nave fuerte y lenta, ideal para destruir Edificios enemigos'
       },
       orbiter: {
         name: 'Orbitador',
@@ -990,21 +992,21 @@ const translation = {
       },
       main: {
         name: 'Principal',
-        description: 'Convierte en Principal (no atacable) un Planeta no principal bajo tu control.¡'
+        description: 'Convierte en Principal (no atacable) un Planeta no principal bajo tu control'
       }
     },
     tree: {
       offensive: {
         name: 'Ofensivo',
-        description: 'Descripción'
+        description: 'Rama orientada al ataque: estadísticas de naves, bonus de combate, etc'
       },
       utility: {
         name: 'Utilidad',
-        description: 'Descripción'
+        description: 'Rama orientada a la productividad: uso de recursos, bonus de producción, etc'
       },
       defensive: {
         name: 'Defensivo',
-        description: 'Descripción'
+        description: 'Rama orientada a la defensa: estadísticas de torres, bonus de defensa, etc'
       }
     },
     skill: {

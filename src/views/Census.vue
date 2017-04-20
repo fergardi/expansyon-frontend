@@ -116,6 +116,7 @@
     },
     sockets: {
       census () {
+        this.close()
         this.refresh()
       }
     },
