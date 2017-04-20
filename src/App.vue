@@ -59,7 +59,7 @@
             md-avatar
               md-icon.md-primary public
             span {{ 'title.galaxy' | i18n }}
-            md-chip {{ player.Galaxy.length | format }}
+            md-chip {{ 10 + player.galaxy | format }}
         md-list-item
           router-link(exact, to="/cantina", v-on:click.native="collapse()")
             md-avatar

@@ -502,7 +502,7 @@ const translation = {
         description: 'Description'
       },
       zoom: {
-        name: 'Depth',
+        name: 'Zoom',
         description: 'Description'
       },
       blaster: {
@@ -1090,8 +1090,8 @@ const translation = {
         description: 'Aumenta en +10% la producción de Combustible'
       },
       zoom: {
-        name: 'Profundidad',
-        description: 'Aumenta en +10% el zoom en Galaxia'
+        name: 'Zoom',
+        description: 'Aumenta en +5% el zoom en Galaxia'
       },
       blaster: {
         name: 'Torreta',

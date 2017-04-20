@@ -88,8 +88,13 @@
           'https://image.flaticon.com/icons/svg/167/167347.svg',
           'https://image.flaticon.com/icons/svg/124/124567.svg'
         ],
-        lat: [-45, 0, 45],
-        lng: [-90, 0, 90],
+        warps: [
+          [-45, -90],
+          [-45, 90],
+          [0, 0],
+          [45, -90],
+          [45, 90]
+        ],
         fighter: 0,
         cruiser: 0,
         bomber: 0
@@ -107,19 +112,25 @@
     },
     methods: {
       universe () {
+        // create map
         this.map = L.map('map', {
           zoomControl: false
-        }).setView([-90 + Math.random() * 180, -180 + Math.random() * 360], this.zoom)
+        }).setView([-90 + Math.random() * 180, -180 + Math.random() * 360], 7 - this.zoom)
+        // set bounds box
         var bounds = new L.LatLngBounds(new L.LatLng(90, -180), new L.LatLng(-90, 180))
-        L.tileLayer('//localhost:34567/galaxy/{z}/{x}/{y}.png', {
-          minZoom: this.zoom,
-          maxZoom: this.zoom,
-          tms: true,
-          maxBounds: bounds
-        }).addTo(this.map)
+        // prevent outside moves
+        this.map.panInsideBounds(bounds, { animate: true })
         this.map.on('moveend', () => {
           this.map.panInsideBounds(bounds, { animate: true })
         })
+        // fill with own tilelayer
+        L.tileLayer('//localhost:34567/galaxy/{z}/{x}/{y}.png', {
+          minZoom: 7 - this.zoom,
+          maxZoom: 7,
+          tms: true,
+          maxBounds: bounds
+        }).addTo(this.map)
+        // create system cluster
         this.system = L.markerClusterGroup({
           showCoverageOnHover: false,
           chunkedLoading: true,
@@ -134,31 +145,31 @@
             })
           }
         }).addTo(this.map)
-        // warps
-        /*
-        for (var i = 0; i < 4; i++) {
-          this.map.addLayer(L.marker([0, 0], {
+        // create wormholes
+        this.warps.forEach((coordinates) => {
+          this.map.addLayer(L.marker(coordinates, {
             icon: L.icon({
-              iconUrl: 'https://image.flaticon.com/icons/svg/124/124585.svg',
-              iconSize: [50, 50],
-              iconAnchor: [50, 50]
+              iconUrl: 'https://image.flaticon.com/icons/svg/389/389104.svg',
+              iconSize: [52, 52],
+              iconAnchor: [26, 26]
             })
           }).on('click', (ev) => {
-            this.map.setView([90, 90], this.zoom)
+            this.map.setView(this.warps[Math.floor(Math.random() * this.warps.length)])
           }))
-        }
-        */
+        })
       },
       refresh () {
+        // remove all markers
         this.system.eachLayer((layer) => {
           this.system.removeLayer(layer)
         })
+        // add all markers
         this.filtered.forEach((planet) => {
           this.system.addLayer(L.marker([planet.lat, planet.lng], {
             icon: L.icon({
               iconUrl: planet.image,
-              iconSize: [25, 25],
-              iconAnchor: [25, 25]
+              iconSize: [26, 26],
+              iconAnchor: [13, 13]
             })
           }).on('click', (ev) => {
             this.select(planet)
@@ -183,7 +194,7 @@
       },
       select (planet) {
         this.selected = planet
-        this.map.setView([planet.lat, planet.lng], this.zoom)
+        this.map.setView([planet.lat, planet.lng])
         this.info()
       },
       attack () {
@@ -231,7 +242,7 @@
         return store.state.player
       },
       zoom () {
-        return 7 - this.player.zoom
+        return this.player.zoom
       },
       hasFighter () {
         return this.fighter <= this.player.fighter
@@ -249,8 +260,10 @@
         return store.state.search
       },
       filtered () {
-        return this.player.Galaxy.filter((planet) => {
-          return planet.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+        return this.player.Galaxy.slice(0, this.player.galaxy - 1).filter((planet) => {
+          return planet.Player
+            ? planet.Player.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 || planet.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+            : planet.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
         })
       }
     }
