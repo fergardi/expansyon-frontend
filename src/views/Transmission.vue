@@ -4,7 +4,7 @@
     md-dialog(ref='report')
       md-card.md-primary.card
         md-card-header
-          .md-title Manouver
+          .md-title {{ 'title.battle' | i18n }}
         md-card-content
           md-chip.grey(v-for="ship in reported.Ships") {{ ship.BattleShip.quantity | format }} {{ ship.name | i18n }}
         md-card-actions

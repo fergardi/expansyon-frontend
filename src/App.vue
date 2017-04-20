@@ -60,7 +60,7 @@
               md-icon.md-primary public
             span {{ 'title.galaxy' | i18n }}
             md-chip {{ 10 + player.galaxy | format }}
-        md-list-item
+        //md-list-item
           router-link(exact, to="/cantina", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary local_bar
@@ -368,17 +368,11 @@
       galaxy () {
         notification.success('notification.galaxy.new')
       },
-      cantina () {
-        notification.success('notification.cantina.new')
-      },
       senate () {
         notification.success('notification.senate.new')
       },
       market () {
         notification.success('notification.market.new')
-      },
-      store () {
-        notification.success('notification.store.new')
       }
     },
     watch: {

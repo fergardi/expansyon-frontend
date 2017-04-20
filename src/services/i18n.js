@@ -63,7 +63,7 @@ const translation = {
         error: 'There has been an error'
       },
       galaxy: {
-        new: 'There are new planets in the galaxy',
+        new: 'There are new elements in the galaxy',
         ok: 'Attack sent',
         error: 'There has been an error'
       },
@@ -651,7 +651,7 @@ const translation = {
         error: 'Ha ocurrido un error'
       },
       galaxy: {
-        new: 'Hay nuevos planetas en la Galaxia',
+        new: 'Hay nuevos elementos en la Galaxia',
         ok: 'Ataque enviado',
         error: 'Ha ocurrido un error'
       },

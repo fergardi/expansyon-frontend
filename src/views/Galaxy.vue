@@ -1,7 +1,7 @@
 <template lang="pug">
   md-layout
 
-    md-dialog(ref="info")
+    md-dialog(ref="planet")
       md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title
@@ -27,6 +27,20 @@
           md-chip(v-if="selected.station") {{ 'resource.station' | i18n }}
         md-card-content
           span {{ selected.description | i18n }}
+        md-card-actions
+          md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
+          md-button.md-dense.md-accent(v-on:click.native="battle()") {{ 'button.attack' | i18n }}
+
+    md-dialog(ref="mission")
+      md-card.md-primary.card(v-bind:class="selected.class")
+        md-card-header
+          .md-title
+            span {{ selected.name }}
+            md-chip {{ selected.total | format }}
+        md-card-media
+          img(v-bind:src="selected.image")
+        md-card-content
+          md-chip.grey(v-for="ship in selected.Ships") {{ ship.MissionShip.quantity | format }} {{ ship.name | i18n }}
         md-card-actions
           md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
           md-button.md-dense.md-accent(v-on:click.native="battle()") {{ 'button.attack' | i18n }}
@@ -125,7 +139,7 @@
         })
         // fill with own tilelayer
         L.tileLayer('//localhost:34567/galaxy/{z}/{x}/{y}.png', {
-          minZoom: 7 - this.zoom,
+          minZoom: 2, // 7 - this.zoom
           maxZoom: 7,
           tms: true,
           maxBounds: bounds
@@ -140,8 +154,8 @@
           iconCreateFunction: (cluster) => {
             return L.icon({
               iconUrl: this.galaxies[Math.floor(Math.random() * this.galaxies.length)],
-              iconSize: [50, 50],
-              iconAnchor: [50, 50]
+              iconSize: [52, 52],
+              iconAnchor: [26, 26]
             })
           }
         }).addTo(this.map)
@@ -163,7 +177,7 @@
         this.system.eachLayer((layer) => {
           this.system.removeLayer(layer)
         })
-        // add all markers
+        // add all planets
         this.filtered.forEach((planet) => {
           this.system.addLayer(L.marker([planet.lat, planet.lng], {
             icon: L.icon({
@@ -175,16 +189,32 @@
             this.select(planet)
           }))
         })
+        // add all missions
+        this.player.Missions.forEach((mission) => {
+          this.system.addLayer(L.marker([mission.lat, mission.lng], {
+            icon: L.icon({
+              iconUrl: mission.image,
+              iconSize: [26, 26],
+              iconAnchor: [13, 13]
+            })
+          }).on('click', (ev) => {
+            this.choose(mission)
+          }))
+        })
       },
-      info () {
-        this.$refs['info'].open()
+      planet () {
+        this.$refs['planet'].open()
+      },
+      mission () {
+        this.$refs['mission'].open()
       },
       battle () {
         this.close()
         this.$refs['battle'].open()
       },
       close () {
-        this.$refs['info'].close()
+        this.$refs['planet'].close()
+        this.$refs['mission'].close()
         this.$refs['battle'].close()
       },
       clear () {
@@ -195,7 +225,12 @@
       select (planet) {
         this.selected = planet
         this.map.setView([planet.lat, planet.lng])
-        this.info()
+        this.planet()
+      },
+      choose (mission) {
+        this.selected = mission
+        this.map.setView([mission.lat, mission.lng])
+        this.mission()
       },
       attack () {
         var battle = {
@@ -260,7 +295,7 @@
         return store.state.search
       },
       filtered () {
-        return this.player.Galaxy.slice(0, this.player.galaxy - 1).filter((planet) => {
+        return this.player.Galaxy.slice(0, 10 + this.player.galaxy - 1).filter((planet) => {
           return planet.Player
             ? planet.Player.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 || planet.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
             : planet.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
