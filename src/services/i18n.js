@@ -222,6 +222,12 @@ const translation = {
       reset: 'Reset',
       main: 'Main',
       votes: 'Votes',
+      attack: 'Attack',
+      defense: 'Defense',
+      speed: 'Speed',
+      aim: 'Aim',
+      evasion: 'Evasion',
+      cargo: 'Cargo',
       insufficient: 'No resources, quantity, energy or space'
     },
     planet: {
@@ -809,6 +815,12 @@ const translation = {
       reset: 'Reiniciar',
       main: 'Principal',
       votes: 'Votos',
+      attack: 'Ataque',
+      defense: 'Defensa',
+      speed: 'Velocidad',
+      aim: 'Puntería',
+      evasion: 'Evasión',
+      cargo: 'Carga',
       insufficient: 'Sin Recursos, Cantidad, Espacio o Energía'
     },
     planet: {

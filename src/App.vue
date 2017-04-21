@@ -178,6 +178,140 @@
           span {{ 'resource.level' | i18n }}
           md-chip {{ player.level | format }}
 
+        md-subheader {{ 'subtitle.referendum' | i18n }}
+        md-list-item
+          md-avatar
+            md-icon.md-primary apps
+          span {{ 'resource.metal' | i18n }}
+          md-chip(v-bind:class="player.Referendum.metal >= 0 ? 'green' : 'red'") {{ player.Referendum.metal | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary texture
+          span {{ 'resource.crystal' | i18n }}
+          md-chip(v-bind:class="player.Referendum.crystal >= 0 ? 'green' : 'red'") {{ player.Referendum.crystal | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary opacity
+          span {{ 'resource.oil' | i18n }}
+          md-chip(v-bind:class="player.Referendum.oil >= 0 ? 'green' : 'red'") {{ player.Referendum.oil | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary home
+          span {{ 'resource.size' | i18n }}
+          md-chip(v-bind:class="player.Referendum.size >= 0 ? 'green' : 'red'") {{ player.Referendum.size | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary flash_on
+          span {{ 'resource.energy' | i18n }}
+          md-chip(v-bind:class="player.Referendum.energy >= 0 ? 'green' : 'red'") {{ player.Referendum.energy | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary star
+          span {{ 'resource.influence' | i18n }}
+          md-chip(v-bind:class="player.Referendum.influence >= 0 ? 'green' : 'red'") {{ player.Referendum.influence | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary gps_fixed
+          span {{ 'resource.attack' | i18n }}
+          md-chip(v-bind:class="player.Referendum.attack >= 0 ? 'green' : 'red'") {{ player.Referendum.attack | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary security
+          span {{ 'resource.defense' | i18n }}
+          md-chip(v-bind:class="player.Referendum.defense >= 0 ? 'green' : 'red'") {{ player.Referendum.defense | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary fast_forward
+          span {{ 'resource.speed' | i18n }}
+          md-chip(v-bind:class="player.Referendum.speed >= 0 ? 'green' : 'red'") {{ player.Referendum.speed | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary gps_not_fixed
+          span {{ 'resource.aim' | i18n }}
+          md-chip(v-bind:class="player.Referendum.aim >= 0 ? 'green' : 'red'") {{ player.Referendum.aim | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary gps_off
+          span {{ 'resource.evasion' | i18n }}
+          md-chip(v-bind:class="player.Referendum.evasion >= 0 ? 'green' : 'red'") {{ player.Referendum.evasion | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary dashboard
+          span {{ 'resource.cargo' | i18n }}
+          md-chip(v-bind:class="player.Referendum.cargo >= 0 ? 'green' : 'red'") {{ player.Referendum.cargo | format }} %
+        md-list-item
+          md-avatar
+            md-icon.md-primary school
+          span {{ 'resource.experience' | i18n }}
+          md-chip(v-bind:class="player.Referendum.experience >= 0 ? 'green' : 'red'") {{ player.Referendum.experience | format }} %
+
+        md-subheader {{ 'subtitle.faction' | i18n }}
+        md-list-item(v-if="player.Faction && player.Faction.metal > 0")
+          md-avatar
+            md-icon.md-primary apps
+          span {{ 'resource.metal' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.metal | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.crystal > 0")
+          md-avatar
+            md-icon.md-primary texture
+          span {{ 'resource.crystal' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.crystal | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.oil > 0")
+          md-avatar
+            md-icon.md-primary opacity
+          span {{ 'resource.oil' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.oil | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.size > 0")
+          md-avatar
+            md-icon.md-primary home
+          span {{ 'resource.size' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.size | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.energy > 0")
+          md-avatar
+            md-icon.md-primary flash_on
+          span {{ 'resource.energy' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.energy | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.influence > 0")
+          md-avatar
+            md-icon.md-primary star
+          span {{ 'resource.influence' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.influence | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.attack > 0")
+          md-avatar
+            md-icon.md-primary gps_fixed
+          span {{ 'resource.attack' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.attack | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.defense > 0")
+          md-avatar
+            md-icon.md-primary security
+          span {{ 'resource.defense' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.defense | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.speed > 0")
+          md-avatar
+            md-icon.md-primary fast_forward
+          span {{ 'resource.speed' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.speed | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.aim > 0")
+          md-avatar
+            md-icon.md-primary gps_not_fixed
+          span {{ 'resource.aim' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.aim | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.evasion > 0")
+          md-avatar
+            md-icon.md-primary gps_off
+          span {{ 'resource.evasion' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.evasion | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.cargo > 0")
+          md-avatar
+            md-icon.md-primary dashboard
+          span {{ 'resource.cargo' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.cargo | format }} %
+        md-list-item(v-if="player.Faction && player.Faction.experience > 0")
+          md-avatar
+            md-icon.md-primary school
+          span {{ 'resource.experience' | i18n }}
+          md-chip(v-bind:class="player.Faction.class") {{ player.Faction.experience | format }} %
+
         md-subheader {{ 'subtitle.hangar' | i18n }}
         md-list-item
           md-avatar

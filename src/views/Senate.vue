@@ -35,6 +35,9 @@
           md-progress(v-bind:md-progress="abs(referendum.attack)", v-bind:class="referendum.attack >= 0 ? 'green' : 'red'")
           md-progress(v-bind:md-progress="abs(referendum.defense)", v-bind:class="referendum.defense >= 0 ? 'green' : 'red'")
           md-progress(v-bind:md-progress="abs(referendum.speed)", v-bind:class="referendum.speed >= 0 ? 'green' : 'red'")
+          md-progress(v-bind:md-progress="abs(referendum.aim)", v-bind:class="referendum.aim >= 0 ? 'green' : 'red'")
+          md-progress(v-bind:md-progress="abs(referendum.evasion)", v-bind:class="referendum.evasion >= 0 ? 'green' : 'red'")
+          md-progress(v-bind:md-progress="abs(referendum.cargo)", v-bind:class="referendum.cargo >= 0 ? 'green' : 'red'")
         md-card-content
           span {{ referendum.description | i18n }}
         md-card-content
