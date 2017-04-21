@@ -111,6 +111,7 @@
 <script>
   import L from 'leaflet'
   import 'leaflet.markercluster'
+  import constants from '../config/constants'
   import notification from '../services/notification'
   import api from '../services/api'
   import store from '../vuex/store'
@@ -171,7 +172,7 @@
           this.map.panInsideBounds(bounds, { animate: true })
         })
         // fill with own tilelayer
-        L.tileLayer('//localhost:34567/galaxy/{z}/{x}/{y}.png', {
+        L.tileLayer(constants.tiles + '/{z}/{x}/{y}.jpg', {
           minZoom: 7 - this.zoom,
           maxZoom: 7,
           tms: true,

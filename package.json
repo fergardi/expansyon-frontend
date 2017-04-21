@@ -15,6 +15,7 @@
     "dev": "npm-run-all --parallel watchify serve",
     "test": "karma start karma.config.js",
     "build": "cross-env NODE_ENV=production browserify -g envify src/main.js | uglifyjs -c warnings=false -m > dist/build.js",
+    "production": "pm2 start npm --name expansyon-frontend -- start",
     "start": "npm-run-all --parallel build serve",
     "cordova": "cross-env NODE_ENV=production browserify -g envify src/main.js | uglifyjs -c warnings=false -m > ../expansyon-cordova/www/js/build.js && cp -R img/* ../expansyon-cordova/www/img/ && cp -R fonts/* ../expansyon-cordova/www/fonts/ && cp -R css/* ../expansyon-cordova/www/css/ && cp node_modules/vue-material/dist/vue-material.css ../expansyon-cordova/www/css/"
   },

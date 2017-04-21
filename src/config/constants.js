@@ -1,11 +1,13 @@
 const constants = {
   dev: {
     api: '//localhost:34567/api',
-    socket: '//localhost:34567'
+    socket: '//localhost:34567',
+    tiles: '//localhost:34567/tiles'
   },
   production: {
     api: 'https://expansyon.com/api',
-    socket: 'https://expansyon.com'
+    socket: 'https://expansyon.com',
+    tiles: 'https://expansyon.com/tiles'
   }
 }
 
