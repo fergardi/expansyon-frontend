@@ -880,7 +880,7 @@ const translation = {
       },
       recycler: {
         name: 'Reciclador',
-        description: 'Nave débil y lenta, ideal para reciclar Recursos tras una batalla'
+        description: 'Nave débil y lenta, ideal para reciclar Recursos tras una batalla y aumentar la producción de Tamaño de tus planetas'
       }
     },
     building: {
