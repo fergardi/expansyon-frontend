@@ -42,7 +42,7 @@
           md-chip(v-if="relic.oil > 0") {{ relic.oil | format }} {{ 'resource.oil' | i18n }}
         md-card-content
           span {{ relic.description | i18n }}
-        md-card-content
+        md-card-content.accent
           md-chip.pink {{ relic.aether | format }} {{ 'resource.aether' | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

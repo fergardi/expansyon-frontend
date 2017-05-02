@@ -5,7 +5,8 @@
       md-card.md-primary.card(v-bind:class="item(selected).class")
         md-card-header
           .md-title
-            span {{ item(selected).name | i18n }}
+            span(v-if="selected.Planet") {{ selected.Planet.name }}
+            span(v-else) {{ item(selected).name | i18n }}
             md-chip(v-if="selected.quantity > 0") {{ selected.quantity | format }}
             md-chip(v-if="selected.Planet") {{ selected.Planet.total | format }}
         md-card-media(v-if="!selected.Planet")
@@ -44,7 +45,8 @@
       md-card.md-primary.card(v-bind:class="item(sale).class", md-with-hover, v-on:click.native="select(sale)")
         md-card-header.center
           .md-title
-            span {{ item(sale).name | i18n }}
+            span(v-if="sale.Planet") {{ sale.Planet.name }}
+            span(v-else) {{ item(sale).name | i18n }}
             md-chip(v-if="sale.quantity > 0") {{ sale.quantity | format }}
             md-chip(v-if="sale.Planet") {{ sale.Planet.total | format }}
           .md-title
@@ -62,18 +64,54 @@
           md-chip(v-if="item(sale).moon") {{ 'resource.moon' | i18n }}
           md-chip(v-if="item(sale).station") {{ 'resource.station' | i18n }}
         md-card-content.no-padding(v-if="sale.Planet")
+          .subprogress(v-if="item(sale).metal")
+            span.left {{ 'resource.metal' | i18n }}
+            span.right {{ item(sale).metal }} %
           md-progress(v-bind:md-progress="item(sale).metal", v-if="item(sale).metal")
+          .subprogress(v-if="item(sale).crystal")
+            span.left {{ 'resource.crystal' | i18n }}
+            span.right {{ item(sale).crystal }} %
           md-progress(v-bind:md-progress="item(sale).crystal", v-if="item(sale).crystal")
+          .subprogress(v-if="item(sale).oil")
+            span.left {{ 'resource.oil' | i18n }}
+            span.right {{ item(sale).oil }} %
           md-progress(v-bind:md-progress="item(sale).oil", v-if="item(sale).oil")
+          .subprogress(v-if="item(sale).size")
+            span.left {{ 'resource.size' | i18n }}
+            span.right {{ item(sale).size }} %
           md-progress(v-bind:md-progress="item(sale).size", v-if="item(sale).size")
+          .subprogress(v-if="item(sale).energy")
+            span.left {{ 'resource.energy' | i18n }}
+            span.right {{ item(sale).energy }} %
           md-progress(v-bind:md-progress="item(sale).energy", v-if="item(sale).energy")
+          .subprogress(v-if="item(sale).influence")
+            span.left {{ 'resource.influence' | i18n }}
+            span.right {{ item(sale).influence }} %
           md-progress(v-bind:md-progress="item(sale).influence", v-if="item(sale).influence")
         md-card-content.no-padding(v-if="sale.Ship")
+          .subprogress(v-if="item(sale).attack")
+            span.left {{ 'resource.attack' | i18n }}
+            span.right {{ item(sale).attack }} %
           md-progress(v-bind:md-progress="item(sale).attack", v-if="item(sale).attack")
+          .subprogress(v-if="item(sale).defense")
+            span.left {{ 'resource.defense' | i18n }}
+            span.right {{ item(sale).defense }} %
           md-progress(v-bind:md-progress="item(sale).defense", v-if="item(sale).defense")
+          .subprogress(v-if="item(sale).speed")
+            span.left {{ 'resource.speed' | i18n }}
+            span.right {{ item(sale).speed }} %
           md-progress(v-bind:md-progress="item(sale).speed", v-if="item(sale).speed")
+          .subprogress(v-if="item(sale).aim")
+            span.left {{ 'resource.aim' | i18n }}
+            span.right {{ item(sale).aim }} %
           md-progress(v-bind:md-progress="item(sale).aim", v-if="item(sale).aim")
+          .subprogress(v-if="item(sale).evasion")
+            span.left {{ 'resource.evasion' | i18n }}
+            span.right {{ item(sale).evasion }} %
           md-progress(v-bind:md-progress="item(sale).evasion", v-if="item(sale).evasion")
+          .subprogress(v-if="item(sale).cargo")
+            span.left {{ 'resource.cargo' | i18n }}
+            span.right {{ item(sale).cargo }} %
           md-progress(v-bind:md-progress="item(sale).cargo", v-if="item(sale).cargo")
         md-card-content(v-if="sale.Relic")
           md-chip(v-if="item(sale).level > 0") {{ item(sale).level | format }} {{ 'resource.level' | i18n }}
@@ -91,7 +129,7 @@
           md-chip(v-if="item(sale).oil > 0") {{ item(sale).oil | format }} {{ 'resource.oil' | i18n }}
         md-card-content(v-if="item(sale).description")
           span {{ item(sale).description | i18n }}
-        md-card-content
+        md-card-content.accent
           md-chip(v-if="sale.metal > 0") {{ sale.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip(v-if="sale.crystal > 0") {{ sale.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip(v-if="sale.oil > 0") {{ sale.oil | format }} {{ 'resource.oil' | i18n }}

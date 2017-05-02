@@ -81,7 +81,7 @@
           md-chip(v-if="relic.crystal > 0") {{ relic.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip(v-if="relic.oil > 0") {{ relic.oil | format }} {{ 'resource.oil' | i18n }}
           md-chip.pink(v-if="relic.aether > 0") {{ relic.aether | format }} {{ 'resource.aether' | i18n }}
-        md-card-content
+        md-card-content.accent
           span {{ relic.description | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

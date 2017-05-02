@@ -23,21 +23,57 @@
         md-card-media
           img(v-bind:src="faction.image")
         md-card-content.no-padding
+          .subprogress
+            span.left {{ 'resource.metal' | i18n }}
+            span.right {{ faction.metal }} %        
           md-progress(v-bind:md-progress="faction.metal")
+          .subprogress
+            span.left {{ 'resource.crystal' | i18n }}
+            span.right {{ faction.crystal }} %          
           md-progress(v-bind:md-progress="faction.crystal")
+          .subprogress
+            span.left {{ 'resource.oil' | i18n }}
+            span.right {{ faction.oil }} %          
           md-progress(v-bind:md-progress="faction.oil")
+          .subprogress
+            span.left {{ 'resource.size' | i18n }}
+            span.right {{ faction.size }} %          
           md-progress(v-bind:md-progress="faction.size")
+          .subprogress
+            span.left {{ 'resource.energy' | i18n }}
+            span.right {{ faction.energy }} %          
           md-progress(v-bind:md-progress="faction.energy")
+          .subprogress
+            span.left {{ 'resource.experience' | i18n }}
+            span.right {{ faction.experience }} %          
           md-progress(v-bind:md-progress="faction.experience")
+          .subprogress
+            span.left {{ 'resource.attack' | i18n }}
+            span.right {{ faction.attack }} %          
           md-progress(v-bind:md-progress="faction.attack")
+          .subprogress
+            span.left {{ 'resource.defense' | i18n }}
+            span.right {{ faction.defense }} %          
           md-progress(v-bind:md-progress="faction.defense")
+          .subprogress
+            span.left {{ 'resource.speed' | i18n }}
+            span.right {{ faction.speed }} %          
           md-progress(v-bind:md-progress="faction.speed")
+          .subprogress
+            span.left {{ 'resource.aim' | i18n }}
+            span.right {{ faction.aim }} %          
           md-progress(v-bind:md-progress="faction.aim")
+          .subprogress
+            span.left {{ 'resource.evasion' | i18n }}
+            span.right {{ faction.evasion }} %          
           md-progress(v-bind:md-progress="faction.evasion")
+          .subprogress
+            span.left {{ 'resource.cargo' | i18n }}
+            span.right {{ faction.cargo }} %          
           md-progress(v-bind:md-progress="faction.cargo")
         md-card-content
           span {{ faction.description | i18n }}
-        md-card-content
+        md-card-content.accent
           md-chip.pink {{ faction.aether | format }} {{ 'resource.aether' | i18n }}
 
     md-layout.center(v-if="!filtered.length", md-flex-xlarge="100", md-flex-large="100", md-flex-medium="100", md-flex-small="100", md-flex-xsmall="100")

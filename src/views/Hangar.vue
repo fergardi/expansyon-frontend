@@ -66,11 +66,29 @@
         md-card-media
           img(v-bind:src="ship.image")
         md-card-content.no-padding.center
+          .subprogress
+            span.left {{ 'resource.attack' | i18n }}
+            span.right {{ ship.attack }} %
           md-progress(v-bind:md-progress="ship.attack")
+          .subprogress
+            span.left {{ 'resource.defense' | i18n }}
+            span.right {{ ship.defense }} %
           md-progress(v-bind:md-progress="ship.defense")
+          .subprogress
+            span.left {{ 'resource.speed' | i18n }}
+            span.right {{ ship.speed }} %
           md-progress(v-bind:md-progress="ship.speed")
+          .subprogress
+            span.left {{ 'resource.aim' | i18n }}
+            span.right {{ ship.aim }} %
           md-progress(v-bind:md-progress="ship.aim")
+          .subprogress
+            span.left {{ 'resource.evasion' | i18n }}
+            span.right {{ ship.evasion }} %
           md-progress(v-bind:md-progress="ship.evasion")
+          .subprogress
+            span.left {{ 'resource.cargo' | i18n }}
+            span.right {{ ship.cargo }} %
           md-progress(v-bind:md-progress="ship.cargo")
         md-card-content
           span {{ ship.description | i18n }}

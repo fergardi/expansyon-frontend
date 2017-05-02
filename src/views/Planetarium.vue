@@ -60,17 +60,35 @@
           .orbit(v-if="planet.moon || planet.station")
             img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="planet.moon")
             img(src="https://image.flaticon.com/icons/svg/139/139726.svg", v-show="planet.station")
-        md-card-content.no-padding
-          md-progress(v-bind:md-progress="planet.metal")
-          md-progress(v-bind:md-progress="planet.crystal")
-          md-progress(v-bind:md-progress="planet.oil")
-          md-progress(v-bind:md-progress="planet.size")
-          md-progress(v-bind:md-progress="planet.energy")
-          md-progress(v-bind:md-progress="planet.influence")
         md-card-content(v-if="planet.moon || planet.station || planet.main")
           md-chip(v-if="planet.main") {{ 'resource.main' | i18n }}
           md-chip(v-if="planet.moon") {{ 'resource.moon' | i18n }}
           md-chip(v-if="planet.station") {{ 'resource.station' | i18n }}
+        md-card-content.no-padding
+          .subprogress
+            span.left {{ 'resource.metal' | i18n }}
+            span.right {{ planet.metal }} %
+          md-progress(v-bind:md-progress="planet.metal")
+          .subprogress
+            span.left {{ 'resource.crystal' | i18n }}
+            span.right {{ planet.crystal }} %
+          md-progress(v-bind:md-progress="planet.crystal")
+          .subprogress
+            span.left {{ 'resource.oil' | i18n }}
+            span.right {{ planet.oil }} %
+          md-progress(v-bind:md-progress="planet.oil")
+          .subprogress
+            span.left {{ 'resource.size' | i18n }}
+            span.right {{ planet.size }} %
+          md-progress(v-bind:md-progress="planet.size")
+          .subprogress
+            span.left {{ 'resource.energy' | i18n }}
+            span.right {{ planet.energy }} %
+          md-progress(v-bind:md-progress="planet.energy")
+          .subprogress
+            span.left {{ 'resource.influence' | i18n }}
+            span.right {{ planet.influence }} %
+          md-progress(v-bind:md-progress="planet.influence")
         md-card-content
           span {{ planet.description | i18n }}
 

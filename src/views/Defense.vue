@@ -33,12 +33,21 @@
         md-card-media
           img(v-bind:src="tower.image")
         md-card-content.no-padding
+          .subprogress
+            span.left {{ 'resource.attack' | i18n }}
+            span.right {{ tower.attack }} %
           md-progress(v-bind:md-progress="tower.attack")
+          .subprogress
+            span.left {{ 'resource.defense' | i18n }}
+            span.right {{ tower.defense }} %
           md-progress(v-bind:md-progress="tower.defense")
+          .subprogress
+            span.left {{ 'resource.speed' | i18n }}
+            span.right {{ tower.speed }} %
           md-progress(v-bind:md-progress="tower.speed")
         md-card-content
           span {{ tower.description | i18n }}
-        md-card-content
+        md-card-content.accent
           md-chip {{ tower.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip {{ tower.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip {{ tower.oil | format }} {{ 'resource.oil' | i18n }}

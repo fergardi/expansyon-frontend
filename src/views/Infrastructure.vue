@@ -33,12 +33,21 @@
         md-card-media
           img(v-bind:src="building.image")
         md-card-content.no-padding
+          .subprogress
+            span.left {{ 'resource.energy' | i18n }}
+            span.right {{ building.energy }} %
           md-progress(v-bind:md-progress="building.energy")
+          .subprogress
+            span.left {{ 'resource.shield' | i18n }}
+            span.right {{ building.shield }} %
           md-progress(v-bind:md-progress="building.shield")
+          .subprogress
+            span.left {{ 'resource.storage' | i18n }}
+            span.right {{ building.storage }} %
           md-progress(v-bind:md-progress="building.storage")
         md-card-content
           span {{ building.description | i18n }}
-        md-card-content
+        md-card-content.accent
           md-chip {{ building.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip {{ building.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip {{ building.oil | format }} {{ 'resource.oil' | i18n }}

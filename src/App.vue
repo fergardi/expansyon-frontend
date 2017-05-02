@@ -33,19 +33,25 @@
           router-link(exact, to="/planetarium", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary language
-            span {{ 'title.planetarium' | i18n }}
+            .md-list-text-container
+              span {{ 'title.planetarium' | i18n }}
+              span {{ 'subtitle.planetarium' | i18n }}
             md-chip {{ player.planetarium | format }}
         md-list-item
           router-link(exact, to="/market", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary shopping_basket
-            span {{ 'title.market' | i18n }}
+            .md-list-text-container
+              span {{ 'title.market' | i18n }}
+              span {{ 'subtitle.market' | i18n }}
             md-chip {{ player.market | format }}
         md-list-item
           router-link(exact, to="/store", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary store
-            span {{ 'title.store' | i18n }}
+            .md-list-text-container
+              span {{ 'title.store' | i18n }}
+              span {{ 'subtitle.store' | i18n }}
             md-chip {{ player.store | format }}
 
         md-subheader {{ 'subtitle.strategy' | i18n }}
@@ -53,19 +59,25 @@
           router-link(exact, to="/galaxy", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary public
-            span {{ 'title.galaxy' | i18n }}
+            .md-list-text-container
+              span {{ 'title.galaxy' | i18n }}
+              span {{ 'subtitle.galaxy' | i18n }}
             md-chip {{ 10 + player.galaxy | format }}
         md-list-item
           router-link(exact, to="/relicarium", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary all_inclusive
-            span {{ 'title.relicarium' | i18n }}
+            .md-list-text-container
+              span {{ 'title.relicarium' | i18n }}
+              span {{ 'subtitle.relicarium' | i18n }}
             md-chip {{ player.relicarium | format }}
         md-list-item
           router-link(exact, to="/temple", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary account_balance
-            span {{ 'title.temple' | i18n }}
+            .md-list-text-container
+              span {{ 'title.temple' | i18n }}
+              span {{ 'subtitle.temple' | i18n }}
             md-chip {{ player.temple | format }}
 
         md-subheader {{ 'subtitle.technology' | i18n }}
@@ -73,25 +85,33 @@
           router-link(exact, to="/research", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary.flip dialpad
-            span {{ 'title.research' | i18n }}
+            .md-list-text-container
+              span {{ 'title.research' | i18n }}
+              span {{ 'subtitle.research' | i18n }}
             md-chip {{ player.research | format }}
         md-list-item
           router-link(exact, to="/hangar", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary build
-            span {{ 'title.hangar' | i18n }}
+            .md-list-text-container
+              span {{ 'title.hangar' | i18n }}
+              span {{ 'subtitle.hangar' | i18n }}
             md-chip {{ player.hangar | format }}
         md-list-item
           router-link(exact, to="/infrastructure", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary settings
-            span {{ 'title.infrastructure' | i18n }}
+            .md-list-text-container
+              span {{ 'title.infrastructure' | i18n }}
+              span {{ 'subtitle.infrastructure' | i18n }}
             md-chip {{ player.infrastructure | format }}
         md-list-item
           router-link(exact, to="/defense", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary track_changes
-            span {{ 'title.defense' | i18n }}
+            .md-list-text-container
+              span {{ 'title.defense' | i18n }}
+              span {{ 'subtitle.defense' | i18n }}
             md-chip {{ player.defense | format }}
 
         md-subheader {{ 'subtitle.diplomacy' | i18n }}
@@ -99,26 +119,34 @@
           router-link(exact, to="/senate", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary gavel
-            span {{ 'title.senate' | i18n }}
+            .md-list-text-container
+              span {{ 'title.senate' | i18n }}
+              span {{ 'subtitle.senate' | i18n }}
             md-chip {{ player.senate | format }}
         md-list-item
           router-link(exact, to="/census", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary group
-            span {{ 'title.census' | i18n }}
+            .md-list-text-container
+              span {{ 'title.census' | i18n }}
+              span {{ 'subtitle.census' | i18n }}
             md-chip {{ player.census | format }}
       
         //md-list-item
           router-link(exact, to="/guild", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary security
-            span {{ 'title.guild' | i18n }}
+            .md-list-text-container
+              span {{ 'title.guild' | i18n }}
+              span {{ 'subtitle.guild' | i18n }}
             md-chip {{ player.guilds | format }}
         md-list-item
           router-link(exact, to="/transmission", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary wifi
-            span {{ 'title.transmission' | i18n }}
+            .md-list-text-container
+              span {{ 'title.transmission' | i18n }}
+              span {{ 'subtitle.transmission' | i18n }}
             md-chip {{ player.transmission | format }}
 
     md-sidenav.md-right.md-fixed(ref="right", v-if="!fullscreen")
@@ -133,291 +161,401 @@
         md-list-item
           md-avatar
             md-icon.md-primary apps
-          span {{ 'resource.metal' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.metal' | i18n }}
+            span {{ 'subtitle.resource' | i18n }}
           md-chip.indigo {{ player.metal | format }} / {{ player.secure | format }}
         md-list-item
           md-avatar
             md-icon.md-primary texture
-          span {{ 'resource.crystal' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.crystal' | i18n }}
+            span {{ 'subtitle.resource' | i18n }}
           md-chip.purple {{ player.crystal | format }} / {{ player.secure | format }}
         md-list-item
           md-avatar
             md-icon.md-primary opacity
-          span {{ 'resource.oil' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.oil' | i18n }}
+            span {{ 'subtitle.resource' | i18n }}
           md-chip.yellow {{ player.oil | format }} / {{ player.secure | format }}
         md-list-item
           md-avatar
             md-icon.md-primary home
-          span {{ 'resource.size' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.size' | i18n }}
+            span {{ 'subtitle.resource' | i18n }}
           md-chip.green {{ (player.infrastructure + player.defense) | format }} / {{ player.size | format }}
         md-list-item
           md-avatar
             md-icon.md-primary flash_on
-          span {{ 'resource.energy' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.energy' | i18n }}
+            span {{ 'subtitle.resource' | i18n }}
           md-chip.cyan {{ player.hangar | format }} / {{ player.energy | format }}
         md-list-item
           md-avatar
             md-icon.md-primary star
-          span {{ 'resource.influence' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.influence' | i18n }}
+            span {{ 'subtitle.resource' | i18n }}
           md-chip.red {{ player.influence | format }}
         md-list-item
           md-avatar
             md-icon.md-primary whatshot
-          span {{ 'resource.aether' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.aether' | i18n }}
+            span {{ 'subtitle.resource' | i18n }}
           md-chip.pink {{ player.aether | format }}
 
         md-subheader {{ 'subtitle.progress' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary school
-          span {{ 'resource.experience' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.experience' | i18n }}
+            span {{ 'subtitle.skills' | i18n }}
           md-chip {{ player.experience | format }} / {{ (player.up * player.level) | format }}
         md-list-item
           md-avatar
             md-icon.md-primary share
-          span {{ 'resource.level' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.level' | i18n }}
+            span {{ 'subtitle.skills' | i18n }}
           md-chip {{ player.level | format }}
 
         md-subheader {{ 'subtitle.referendum' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary apps
-          span {{ 'resource.metal' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.metal' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.metal >= 0 ? 'green' : 'red'") {{ player.Referendum.metal | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary texture
-          span {{ 'resource.crystal' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.crystal' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.crystal >= 0 ? 'green' : 'red'") {{ player.Referendum.crystal | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary opacity
-          span {{ 'resource.oil' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.oil' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.oil >= 0 ? 'green' : 'red'") {{ player.Referendum.oil | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary home
-          span {{ 'resource.size' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.size' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.size >= 0 ? 'green' : 'red'") {{ player.Referendum.size | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary flash_on
-          span {{ 'resource.energy' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.energy' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.energy >= 0 ? 'green' : 'red'") {{ player.Referendum.energy | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary star
-          span {{ 'resource.influence' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.influence' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.influence >= 0 ? 'green' : 'red'") {{ player.Referendum.influence | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary gps_fixed
-          span {{ 'resource.attack' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.attack' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.attack >= 0 ? 'green' : 'red'") {{ player.Referendum.attack | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary security
-          span {{ 'resource.defense' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.defense' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.defense >= 0 ? 'green' : 'red'") {{ player.Referendum.defense | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary fast_forward
-          span {{ 'resource.speed' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.speed' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.speed >= 0 ? 'green' : 'red'") {{ player.Referendum.speed | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary gps_not_fixed
-          span {{ 'resource.aim' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.aim' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.aim >= 0 ? 'green' : 'red'") {{ player.Referendum.aim | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary gps_off
-          span {{ 'resource.evasion' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.evasion' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.evasion >= 0 ? 'green' : 'red'") {{ player.Referendum.evasion | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary dashboard
-          span {{ 'resource.cargo' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.cargo' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.cargo >= 0 ? 'green' : 'red'") {{ player.Referendum.cargo | format }} %
         md-list-item
           md-avatar
             md-icon.md-primary school
-          span {{ 'resource.experience' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.experience' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.experience >= 0 ? 'green' : 'red'") {{ player.Referendum.experience | format }} %
 
         md-subheader {{ 'subtitle.faction' | i18n }}
         md-list-item(v-if="player.Faction && player.Faction.metal > 0")
           md-avatar
             md-icon.md-primary apps
-          span {{ 'resource.metal' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.metal' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.metal | format }} %
         md-list-item(v-if="player.Faction && player.Faction.crystal > 0")
           md-avatar
             md-icon.md-primary texture
-          span {{ 'resource.crystal' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.crystal' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.crystal | format }} %
         md-list-item(v-if="player.Faction && player.Faction.oil > 0")
           md-avatar
             md-icon.md-primary opacity
-          span {{ 'resource.oil' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.oil' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.oil | format }} %
         md-list-item(v-if="player.Faction && player.Faction.size > 0")
           md-avatar
             md-icon.md-primary home
-          span {{ 'resource.size' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.size' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.size | format }} %
         md-list-item(v-if="player.Faction && player.Faction.energy > 0")
           md-avatar
             md-icon.md-primary flash_on
-          span {{ 'resource.energy' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.energy' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.energy | format }} %
         md-list-item(v-if="player.Faction && player.Faction.influence > 0")
           md-avatar
             md-icon.md-primary star
-          span {{ 'resource.influence' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.influence' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.influence | format }} %
         md-list-item(v-if="player.Faction && player.Faction.attack > 0")
           md-avatar
             md-icon.md-primary gps_fixed
-          span {{ 'resource.attack' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.attack' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.attack | format }} %
         md-list-item(v-if="player.Faction && player.Faction.defense > 0")
           md-avatar
             md-icon.md-primary security
-          span {{ 'resource.defense' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.defense' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.defense | format }} %
         md-list-item(v-if="player.Faction && player.Faction.speed > 0")
           md-avatar
             md-icon.md-primary fast_forward
-          span {{ 'resource.speed' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.speed' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.speed | format }} %
         md-list-item(v-if="player.Faction && player.Faction.aim > 0")
           md-avatar
             md-icon.md-primary gps_not_fixed
-          span {{ 'resource.aim' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.aim' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.aim | format }} %
         md-list-item(v-if="player.Faction && player.Faction.evasion > 0")
           md-avatar
             md-icon.md-primary gps_off
-          span {{ 'resource.evasion' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.evasion' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.evasion | format }} %
         md-list-item(v-if="player.Faction && player.Faction.cargo > 0")
           md-avatar
             md-icon.md-primary dashboard
-          span {{ 'resource.cargo' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.cargo' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.cargo | format }} %
         md-list-item(v-if="player.Faction && player.Faction.experience > 0")
           md-avatar
             md-icon.md-primary school
-          span {{ 'resource.experience' | i18n }}
+          .md-list-text-container
+            span {{ 'resource.experience' | i18n }}
+            span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.experience | format }} %
 
         md-subheader {{ 'subtitle.hangar' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary send
-          span {{ 'ship.fighter.name' | i18n }}
+          .md-list-text-container
+            span {{ 'ship.fighter.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.fighter | format }}
         md-list-item
           md-avatar
             md-icon.md-primary toys
-          span {{ 'ship.cruiser.name' | i18n }}
+          .md-list-text-container
+            span {{ 'ship.cruiser.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.cruiser | format }}
         md-list-item
           md-avatar
             md-icon.md-primary bubble_chart
-          span {{ 'ship.bomber.name' | i18n }}
+          .md-list-text-container
+            span {{ 'ship.bomber.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.bomber | format }}
         md-list-item
           md-avatar
             md-icon.md-primary camera
-          span {{ 'ship.orbiter.name' | i18n }}
+          .md-list-text-container
+            span {{ 'ship.orbiter.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.orbiter | format }}
         md-list-item
           md-avatar
             md-icon.md-primary widgets
-          span {{ 'ship.carrier.name' | i18n }}
+          .md-list-text-container
+            span {{ 'ship.carrier.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.carrier | format }}
         md-list-item
           md-avatar
             md-icon.md-primary cached
-          span {{ 'ship.recycler.name' | i18n }}
+          .md-list-text-container
+            span {{ 'ship.recycler.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.recycler | format }}
 
         md-subheader {{ 'subtitle.infrastructure' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary apps
-          span {{ 'building.furnace.name' | i18n }}
+          .md-list-text-container
+            span {{ 'building.furnace.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.furnace | format }}
         md-list-item
           md-avatar
             md-icon.md-primary texture
-          span {{ 'building.factory.name' | i18n }}
+          .md-list-text-container
+            span {{ 'building.factory.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.factory | format }}
         md-list-item
           md-avatar
             md-icon.md-primary opacity
-          span {{ 'building.refinery.name' | i18n }}
+          .md-list-text-container
+            span {{ 'building.refinery.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.refinery | format }}
         md-list-item
           md-avatar
             md-icon.md-primary flash_on
-          span {{ 'building.plant.name' | i18n }}
+          .md-list-text-container
+            span {{ 'building.plant.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.plant | format }}
         md-list-item
           md-avatar
             md-icon.md-primary verified_user
-          span {{ 'building.barrier.name' | i18n }}
+          .md-list-text-container
+            span {{ 'building.barrier.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.barrier | format }}
         md-list-item
           md-avatar
             md-icon.md-primary dashboard
-          span {{ 'building.warehouse.name' | i18n }}
+          .md-list-text-container
+            span {{ 'building.warehouse.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.warehouse | format }}
 
         md-subheader {{ 'subtitle.defense' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary gps_off
-          span {{ 'tower.blaster.name' | i18n }}
+          .md-list-text-container
+            span {{ 'tower.blaster.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.blaster | format }}
         md-list-item
           md-avatar
             md-icon.md-primary gps_not_fixed
-          span {{ 'tower.railgun.name' | i18n }}
+          .md-list-text-container
+            span {{ 'tower.railgun.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.railgun | format }}
         md-list-item
           md-avatar
             md-icon.md-primary gps_fixed
-          span {{ 'tower.cannon.name' | i18n }}
+          .md-list-text-container
+            span {{ 'tower.cannon.name' | i18n }}
+            span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.cannon | format }}
 
         md-subheader {{ 'subtitle.language' | i18n }}
         md-list-item(v-on:click.native="localize('es')")
           md-avatar
             md-icon.md-primary translate
-          span {{ 'language.spanish' | i18n }}
+          .md-list-text-container
+            span {{ 'language.spanish' | i18n }}
+            span {{ 'subtitle.translate' | i18n }}
         md-list-item(v-on:click.native="localize('en')")
           md-avatar
             md-icon.md-primary translate
-          span {{ 'language.english' | i18n }}
+          .md-list-text-container
+            span {{ 'language.english' | i18n }}
+            span {{ 'subtitle.translate' | i18n }}
 
         md-subheader {{ 'subtitle.account' | i18n }}
         md-list-item
           router-link(exact, to="/profile", v-on:click.native="collapse()")
             md-avatar
-              md-icon.md-primary account_circle
-            span {{ 'title.profile' | i18n }}
+              md-icon.md-primary settings
+            .md-list-text-container
+              span {{ 'title.profile' | i18n }}
+              span {{ 'subtitle.profile' | i18n }}
         md-list-item
           router-link(exact, to="/help", v-on:click.native="collapse()")
             md-avatar
               md-icon.md-primary chrome_reader_mode
-            span {{ 'title.help' | i18n }}
+            .md-list-text-container
+              span {{ 'title.help' | i18n }}
+              span {{ 'subtitle.help' | i18n }}
         md-list-item(v-on:click.native="logout()")
           md-avatar
             md-icon.md-primary lock
-          span {{ 'account.logout' | i18n }}
+          .md-list-text-container
+            span {{ 'account.logout' | i18n }}
+            span {{ 'subtitle.logout' | i18n }}
 
     .main.padding#main
       router-view.content.animation.fadeIn.scrollable
@@ -545,6 +683,10 @@
     scroll-behavior smooth !important
   .md-chip
     margin 2px
+    height 26px
+    padding 6px 10px
+    border-radius 26px
+    line-height 13px
   .md-toolbar
     .md-button
       margin 0 !important
@@ -687,9 +829,11 @@
           padding 10px
       .md-card-content
         text-align center
+      .md-card-header + .md-card-content
+        padding-top 16px
 
   /* CARDS */
-  border = 4px
+  border = 6px
   .rounded-top
     border-top-left-radius border
     border-top-right-radius border
@@ -727,9 +871,16 @@
       text-align center
       color white
       .md-progress
-        height 10px
-        margin 5px 0
+        margin 0
+      .subprogress:first-of-type
+        margin-top 10px
+      .subprogress span
+        margin 0 15px
+        font-size 0.7em
+        line-height 15px
     .md-card-media
+      background url("img/back.jpg") no-repeat center center
+      background-size cover
       img
         height 140px
         padding 10px
@@ -740,8 +891,52 @@
   // snackbar
   .md-snackbar
     .md-button
-      margin 0 -16px 0 0 !important
-        
+      margin 0 !important
+
+  /* BLIZZARD */
+  blizzard-dark = #151e25
+  blizzard-light = #1d2730
+  blizzard-font = #ccd2da
+  blizzard-sub = #9EA0A3
+  .md-button.md-warn
+  .md-button.md-accent
+    border 1px solid
+  .md-button.md-raised
+    color white !important
+  .md-toolbar
+  .md-snackbar-container
+  .md-card
+  .md-card-header
+  .md-card-actions
+  .md-card-content.accent
+  .md-tabs-navigation
+    background-color blizzard-dark !important
+  .md-card-content
+  .md-card-media
+    background-color blizzard-light !important
+  .md-sidenav
+    .md-toolbar
+      background-color blizzard-dark !important
+    .md-sidenav-content
+      background-color blizzard-light !important
+      .md-list
+        color blizzard-font !important
+        .md-icon
+        .router-link-active
+        .md-subheader
+          color blizzard-font !important
+        .md-subheader:first-of-type
+          margin-top: 5px
+        .md-subheader
+          background-color blizzard-dark !important
+        .md-chip
+          font-size 0.75em
+        span
+          font-size 0.9em
+        .md-list-text-container>:nth-child(2)
+          color blizzard-sub !important
+  /* BLIZZARD */
+
   /* COLORS */
   grey = #F5F5F5
   green = #64DD17
@@ -885,10 +1080,4 @@
         margin-left 10px
     .hide
       display none !important
-    table
-      th
-      td
-      .md-chip
-        margin 0
-        font-size 0.8em !important
 </style>
