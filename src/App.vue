@@ -410,7 +410,7 @@
             span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.experience | format }} %
 
-        md-subheader {{ 'subtitle.hangar' | i18n }}
+        md-subheader {{ 'subtitle.fleet' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary send
@@ -454,7 +454,7 @@
             span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.recycler | format }}
 
-        md-subheader {{ 'subtitle.infrastructure' | i18n }}
+        md-subheader {{ 'subtitle.building' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary apps
@@ -498,7 +498,7 @@
             span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.warehouse | format }}
 
-        md-subheader {{ 'subtitle.defense' | i18n }}
+        md-subheader {{ 'subtitle.tower' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary gps_off
@@ -853,8 +853,8 @@
     border-bottom-left-radius border
     border-bottom-right-radius border
   .md-layout
-    align-items flex-start
-    align-content flex-start
+    // align-items flex-start
+    // align-content flex-start
   .md-card
   .md-table-card
     border-radius border
