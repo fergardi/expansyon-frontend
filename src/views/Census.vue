@@ -40,7 +40,7 @@
                 md-chip {{ player.influence | format }}
 
             md-table-row(v-if="!ordered.length")
-              md-table-cell {{ 'filter.nothing' | i18n }}
+              md-table-cell(colspan="4") {{ 'filter.nothing' | i18n }}
     //
       md-tab#friends.no-padding(v-bind:md-label="$t('tab.friends')")
         
@@ -64,7 +64,7 @@
                 md-chip {{ player.influence | format }}
 
             md-table-row(v-if="!ordered.length")
-              md-table-cell {{ 'filter.nothing' | i18n }}
+              md-table-cell(colspan="4") {{ 'filter.nothing' | i18n }}
 
       md-tab#enemies.no-padding(v-bind:md-label="$t('tab.enemies')")
         
@@ -88,7 +88,7 @@
                 md-chip {{ player.influence | format }}
 
             md-table-row(v-if="!ordered.length")
-              md-table-cell {{ 'filter.nothing' | i18n }}
+              md-table-cell(colspan="4") {{ 'filter.nothing' | i18n }}
 </template>
 
 <script>

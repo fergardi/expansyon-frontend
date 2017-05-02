@@ -77,6 +77,8 @@
           md-chip(v-if="relic.tower") {{ 'resource.tower' | i18n }}
           md-chip(v-if="relic.moon") {{ 'resource.moon' | i18n }}
           md-chip(v-if="relic.station") {{ 'resource.station' | i18n }}
+          md-chip(v-if="relic.reset") {{ 'resource.reset' | i18n }}
+          md-chip(v-if="relic.main") {{ 'resource.main' | i18n }}
           md-chip(v-if="relic.metal > 0") {{ relic.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip(v-if="relic.crystal > 0") {{ relic.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip(v-if="relic.oil > 0") {{ relic.oil | format }} {{ 'resource.oil' | i18n }}

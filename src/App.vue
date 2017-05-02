@@ -776,6 +776,8 @@
     white-space normal
     text-align center
     height auto
+    line-height 13px
+    padding 5px
 
   /* borders */
   /*
@@ -851,14 +853,14 @@
     border-bottom-left-radius border
     border-bottom-right-radius border
   .md-layout
-    // align-items flex-start
-    // align-content flex-start
+    align-items flex-start
+    align-content flex-start
   .md-card
   .md-table-card
     border-radius border
   .md-card.card
     width 100%
-    margin 4px
+    margin 2px
     .md-card-header
       .md-title
         margin 0 !important
@@ -902,7 +904,7 @@
   .md-button.md-accent
     border 1px solid
   .md-button.md-raised
-    color white !important
+    color blizzard-font !important
   .md-toolbar
   .md-snackbar-container
   .md-card
@@ -910,10 +912,26 @@
   .md-card-actions
   .md-card-content.accent
   .md-tabs-navigation
+  .md-tooltip
     background-color blizzard-dark !important
+  .md-table
+  .md-card.md-table-card
   .md-card-content
   .md-card-media
     background-color blizzard-light !important
+  .md-table-row
+    border-top 1px solid blizzard-dark !important
+  .md-table-cell
+    color blizzard-font !important
+  .md-table-row:hover
+    .md-table-cell
+      color blizzard-light !important
+  .md-table
+    color blizzard-font !important
+    .md-table-head
+    .md-table-head i
+    .md-chip
+      color blizzard-font !important
   .md-sidenav
     .md-toolbar
       background-color blizzard-dark !important
@@ -929,10 +947,10 @@
           margin-top: 5px
         .md-subheader
           background-color blizzard-dark !important
+          font-weight 700
         .md-chip
-          font-size 0.75em
         span
-          font-size 0.9em
+          font-size 0.85em
         .md-list-text-container>:nth-child(2)
           color blizzard-sub !important
   /* BLIZZARD */

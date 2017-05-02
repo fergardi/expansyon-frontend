@@ -51,7 +51,7 @@
                 md-chip {{ guild.influence | format }}
 
             md-table-row(v-if="!ordered.length")
-              md-table-cell {{ 'filter.nothing' | i18n }}
+              md-table-cell(colspan="4") {{ 'filter.nothing' | i18n }}
 
       md-tab#myguild.no-padding(v-bind:md-label="$t('tab.guild')")
         md-list

@@ -92,7 +92,7 @@
           md-progress(v-bind:md-progress="ship.cargo")
         md-card-content
           span {{ ship.description | i18n }}
-        md-card-content
+        md-card-content.accent
           md-chip {{ ship.metal | format }} {{ 'resource.metal' | i18n }}
           md-chip {{ ship.crystal | format }} {{ 'resource.crystal' | i18n }}
           md-chip {{ ship.oil | format }} {{ 'resource.oil' | i18n }}
