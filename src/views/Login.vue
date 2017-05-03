@@ -159,7 +159,7 @@
   // remove autofill color
   @-webkit-keyframes autofill {
     to {
-      color yellow
+      color #2196F3
       background transparent
     }
   }
@@ -175,7 +175,7 @@
     animation spin 1s infinite linear
   @keyframes spin
     from 
-      transform:rotate(0deg)
+      transform rotate(0deg)
     to 
-      transform:rotate(360deg)
+      transform rotate(360deg)
 </style>

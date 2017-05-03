@@ -872,7 +872,7 @@
     border-radius border
   .md-card.card
     width 100%
-    margin 8px
+    margin 4px
     .md-card-header
       .md-title
         margin 0 !important
@@ -911,7 +911,7 @@
   // snackbar
   .md-snackbar
     .md-button
-      margin 0 !important
+      margin 0 0 0 5px !important
 
   /* BLIZZARD */
   blizzard-dark = #151e25

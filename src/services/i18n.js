@@ -832,7 +832,7 @@ const translation = {
       bonus: 'Bonus',
       quantity: 'Cantidad disponible',
       resource: 'Recurso principal',
-      skills: 'Puntos disponibles',
+      skills: 'Puntos acumulados',
       translate: 'Traducir idioma',
       profile: 'Preferencias de la cuenta',
       help: 'Ayuda del juego',

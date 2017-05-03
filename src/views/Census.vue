@@ -25,7 +25,7 @@
           md-table-header
             md-table-row
               md-table-head(md-sort-by="name") {{ 'table.name' | i18n }}
-              md-table-head.hide {{ 'table.guild' | i18n }}
+              // md-table-head.hide {{ 'table.guild' | i18n }}
               md-table-head.md-numeric(md-sort-by="Planets.length") {{ 'table.planets' | i18n }}
               md-table-head.md-numeric(md-sort-by="influence") {{ 'table.influence' | i18n }}
 
@@ -33,14 +33,14 @@
             md-table-row(v-for="player in ordered", md-auto-select, v-bind:md-item="player", v-on:click.native="info(player)")
               md-table-cell
                 md-chip(v-bind:class="color(player)") {{ player.name }}
-              md-table-cell.hide {{ guild(player) }}
+              // md-table-cell.hide {{ guild(player) }}
               md-table-cell.md-numeric
                 md-chip {{ player.Planets.length | format }}
               md-table-cell.md-numeric
                 md-chip {{ player.influence | format }}
 
             md-table-row(v-if="!ordered.length")
-              md-table-cell(colspan="4") {{ 'filter.nothing' | i18n }}
+              md-table-cell(colspan="3") {{ 'filter.nothing' | i18n }}
     //
       md-tab#friends.no-padding(v-bind:md-label="$t('tab.friends')")
         
