@@ -95,7 +95,7 @@ Vue.material.registerTheme({
       color: 'blue-grey',
       hue: '900'
     },
-    accent: 'green',
+    accent: 'blue',
     warn: 'red'
   }
 })

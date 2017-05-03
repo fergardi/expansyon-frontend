@@ -392,6 +392,11 @@
 <style src="../../node_modules/leaflet/dist/leaflet.css"></style>
 <style src="../../node_modules/leaflet.markercluster/dist/MarkerCluster.css"></style>
 
+<style lang="stylus">
+  .leaflet-control-attribution
+    display none !important
+</style>
+
 <style lang="stylus" scoped>
   #map
     width 100%

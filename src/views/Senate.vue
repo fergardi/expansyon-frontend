@@ -47,9 +47,9 @@
             span.right {{ referendum.energy }} %
           md-progress(v-bind:md-progress="abs(referendum.energy)", v-bind:class="referendum.energy >= 0 ? 'green' : 'red'")
           .subprogress
-            span.left {{ 'resource.influence' | i18n }}
-            span.right {{ referendum.influence }} %
-          md-progress(v-bind:md-progress="abs(referendum.influence)", v-bind:class="referendum.influence >= 0 ? 'green' : 'red'")
+            span.left {{ 'resource.experience' | i18n }}
+            span.right {{ referendum.experience }} %
+          md-progress(v-bind:md-progress="abs(referendum.experience)", v-bind:class="referendum.experience >= 0 ? 'green' : 'red'")
           .subprogress
             span.left {{ 'resource.attack' | i18n }}
             span.right {{ referendum.attack }} %

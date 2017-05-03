@@ -26,9 +26,9 @@
           md-avatar.md-large
             img(src="https://image.flaticon.com/icons/svg/124/124582.svg")
           h2.md-title {{ 'title.left' | i18n }}
-      md-list.md-dense.scrollable
 
-        md-subheader {{ 'subtitle.economy' | i18n }}
+      md-list.md-dense.scrollable
+        md-subheader.md-inset {{ 'subtitle.economy' | i18n }}
         md-list-item
           router-link(exact, to="/planetarium", v-on:click.native="collapse()")
             md-avatar
@@ -54,7 +54,7 @@
               span {{ 'subtitle.store' | i18n }}
             md-chip {{ player.store | format }}
 
-        md-subheader {{ 'subtitle.strategy' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.strategy' | i18n }}
         md-list-item
           router-link(exact, to="/galaxy", v-on:click.native="collapse()")
             md-avatar
@@ -80,7 +80,7 @@
               span {{ 'subtitle.temple' | i18n }}
             md-chip {{ player.temple | format }}
 
-        md-subheader {{ 'subtitle.technology' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.technology' | i18n }}
         md-list-item
           router-link(exact, to="/research", v-on:click.native="collapse()")
             md-avatar
@@ -114,7 +114,7 @@
               span {{ 'subtitle.defense' | i18n }}
             md-chip {{ player.defense | format }}
 
-        md-subheader {{ 'subtitle.diplomacy' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.diplomacy' | i18n }}
         md-list-item
           router-link(exact, to="/senate", v-on:click.native="collapse()")
             md-avatar
@@ -149,6 +149,42 @@
               span {{ 'subtitle.transmission' | i18n }}
             md-chip {{ player.transmission | format }}
 
+        md-subheader.md-inset {{ 'subtitle.language' | i18n }}
+        md-list-item(v-on:click.native="localize('es')")
+          md-avatar
+            md-icon.md-primary translate
+          .md-list-text-container
+            span {{ 'language.spanish' | i18n }}
+            span {{ 'subtitle.translate' | i18n }}
+        md-list-item(v-on:click.native="localize('en')")
+          md-avatar
+            md-icon.md-primary translate
+          .md-list-text-container
+            span {{ 'language.english' | i18n }}
+            span {{ 'subtitle.translate' | i18n }}
+
+        md-subheader.md-inset {{ 'subtitle.account' | i18n }}
+        md-list-item
+          router-link(exact, to="/profile", v-on:click.native="collapse()")
+            md-avatar
+              md-icon.md-primary settings
+            .md-list-text-container
+              span {{ 'title.profile' | i18n }}
+              span {{ 'subtitle.profile' | i18n }}
+        md-list-item
+          router-link(exact, to="/help", v-on:click.native="collapse()")
+            md-avatar
+              md-icon.md-primary chrome_reader_mode
+            .md-list-text-container
+              span {{ 'title.help' | i18n }}
+              span {{ 'subtitle.help' | i18n }}
+        md-list-item(v-on:click.native="logout()")
+          md-avatar
+            md-icon.md-primary lock
+          .md-list-text-container
+            span {{ 'account.logout' | i18n }}
+            span {{ 'subtitle.logout' | i18n }}
+
     md-sidenav.md-right.md-fixed(ref="right", v-if="!fullscreen")
       md-whiteframe
         md-toolbar#right.md-account-header.center
@@ -157,7 +193,7 @@
           h2.md-title {{ 'title.right' | i18n }}
       md-list.md-dense.scrollable
 
-        md-subheader {{ 'subtitle.resources' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.resources' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary apps
@@ -208,7 +244,7 @@
             span {{ 'subtitle.resource' | i18n }}
           md-chip.pink {{ player.aether | format }}
 
-        md-subheader {{ 'subtitle.progress' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.progress' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary school
@@ -224,7 +260,7 @@
             span {{ 'subtitle.skills' | i18n }}
           md-chip {{ player.level | format }}
 
-        md-subheader {{ 'subtitle.referendum' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.referendum' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary apps
@@ -317,7 +353,7 @@
             span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Referendum.experience >= 0 ? 'green' : 'red'") {{ player.Referendum.experience | format }} %
 
-        md-subheader {{ 'subtitle.faction' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.faction' | i18n }}
         md-list-item(v-if="player.Faction && player.Faction.metal > 0")
           md-avatar
             md-icon.md-primary apps
@@ -410,7 +446,7 @@
             span {{ 'subtitle.bonus' | i18n }}
           md-chip(v-bind:class="player.Faction.class") {{ player.Faction.experience | format }} %
 
-        md-subheader {{ 'subtitle.fleet' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.fleet' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary send
@@ -454,7 +490,7 @@
             span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.recycler | format }}
 
-        md-subheader {{ 'subtitle.building' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.building' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary apps
@@ -498,7 +534,7 @@
             span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.warehouse | format }}
 
-        md-subheader {{ 'subtitle.tower' | i18n }}
+        md-subheader.md-inset {{ 'subtitle.tower' | i18n }}
         md-list-item
           md-avatar
             md-icon.md-primary gps_off
@@ -520,42 +556,6 @@
             span {{ 'tower.cannon.name' | i18n }}
             span {{ 'subtitle.quantity' | i18n }}
           md-chip {{ player.cannon | format }}
-
-        md-subheader {{ 'subtitle.language' | i18n }}
-        md-list-item(v-on:click.native="localize('es')")
-          md-avatar
-            md-icon.md-primary translate
-          .md-list-text-container
-            span {{ 'language.spanish' | i18n }}
-            span {{ 'subtitle.translate' | i18n }}
-        md-list-item(v-on:click.native="localize('en')")
-          md-avatar
-            md-icon.md-primary translate
-          .md-list-text-container
-            span {{ 'language.english' | i18n }}
-            span {{ 'subtitle.translate' | i18n }}
-
-        md-subheader {{ 'subtitle.account' | i18n }}
-        md-list-item
-          router-link(exact, to="/profile", v-on:click.native="collapse()")
-            md-avatar
-              md-icon.md-primary settings
-            .md-list-text-container
-              span {{ 'title.profile' | i18n }}
-              span {{ 'subtitle.profile' | i18n }}
-        md-list-item
-          router-link(exact, to="/help", v-on:click.native="collapse()")
-            md-avatar
-              md-icon.md-primary chrome_reader_mode
-            .md-list-text-container
-              span {{ 'title.help' | i18n }}
-              span {{ 'subtitle.help' | i18n }}
-        md-list-item(v-on:click.native="logout()")
-          md-avatar
-            md-icon.md-primary lock
-          .md-list-text-container
-            span {{ 'account.logout' | i18n }}
-            span {{ 'subtitle.logout' | i18n }}
 
     .main.padding#main
       router-view.content.animation.fadeIn.scrollable
@@ -795,6 +795,17 @@
         img
           border-bottom 1px solid black
   */
+
+  /* chips */
+  .md-chip
+    .md-icon
+      width 16px
+      height 16px
+      min-width 16px
+      min-height 16px
+      font-size 16px
+    .md-icon + span
+      margin-left 2px
   
   /* OPACITY */
   opacity = 0.90
@@ -817,6 +828,7 @@
     max-width 90%
     max-height 90%
     .md-card
+      margin 0 !important
       .md-card-header
         .md-title
           margin 0 !important
@@ -835,7 +847,7 @@
         padding-top 16px
 
   /* CARDS */
-  border = 6px
+  border = 8px
   .rounded-top
     border-top-left-radius border
     border-top-right-radius border
@@ -860,7 +872,7 @@
     border-radius border
   .md-card.card
     width 100%
-    margin 2px
+    margin 8px
     .md-card-header
       .md-title
         margin 0 !important
@@ -890,6 +902,12 @@
       justify-content space-around
       padding 16px
 
+  // buttons
+  .md-button.md-dense
+    font-size 10px
+  .md-button[disabled]
+    color grey
+
   // snackbar
   .md-snackbar
     .md-button
@@ -900,11 +918,16 @@
   blizzard-light = #1d2730
   blizzard-font = #ccd2da
   blizzard-sub = #9EA0A3
+  blizzard-accent = #2196F3
   .md-button.md-warn
   .md-button.md-accent
     border 1px solid
   .md-button.md-raised
     color blizzard-font !important
+  .md-button.skill
+  .md-card-media
+    border 1px solid blizzard-accent
+    box-sizing border-box
   .md-toolbar
   .md-snackbar-container
   .md-card
@@ -923,6 +946,8 @@
     border-top 1px solid blizzard-dark !important
   .md-table-cell
     color blizzard-font !important
+    .md-table-cell-container
+      padding 5px !important
   .md-table-row:hover
     .md-table-cell
       color blizzard-light !important
@@ -941,13 +966,15 @@
         color blizzard-font !important
         .md-icon
         .router-link-active
-        .md-subheader
           color blizzard-font !important
-        .md-subheader:first-of-type
-          margin-top: 5px
         .md-subheader
           background-color blizzard-dark !important
+          color blizzard-accent !important
           font-weight 700
+        .md-subheader:first-of-type
+          margin-top 5px
+        .md-icon
+          color blizzard-accent !important
         .md-chip
         span
           font-size 0.85em
