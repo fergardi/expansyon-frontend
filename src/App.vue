@@ -1,11 +1,11 @@
 <template lang="pug">
   .app
 
-    md-snackbar(ref="alert", md-duration="5000", md-position="bottom center")
+    md-snackbar(ref="alert", md-position="bottom center")
       span {{ notification.text | i18n }}
       md-button.md-dense(v-bind:class="notification.class", v-on:click.native="dismiss()") {{ 'button.close' | i18n }}
 
-    md-whiteframe
+    md-whiteframe(md-elevation="8")
       md-toolbar#toolbar.md-dense.flex(v-if="!fullscreen")
         md-button.md-icon-button.toggler(v-on:click.native="left()")
           md-icon chevron_right
@@ -21,7 +21,7 @@
           md-icon chevron_left
 
     md-sidenav.md-left.md-fixed(ref="left", v-if="!fullscreen")
-      md-whiteframe
+      md-whiteframe(md-elevation="8")
         md-toolbar#left.md-account-header.center
           md-avatar.md-large
             img(src="https://image.flaticon.com/icons/svg/124/124582.svg")
@@ -186,7 +186,7 @@
             span {{ 'subtitle.logout' | i18n }}
 
     md-sidenav.md-right.md-fixed(ref="right", v-if="!fullscreen")
-      md-whiteframe
+      md-whiteframe(md-elevation="8")
         md-toolbar#right.md-account-header.center
           md-avatar.md-large
             img(src="https://image.flaticon.com/icons/svg/124/124555.svg")
@@ -571,16 +571,11 @@
   export default {
     data () {
       return {
-        search: store.state.search,
-        notification: {
-          text: '',
-          class: ''
-        }
+        search: store.state.search
       }
     },
     created () {
       store.watch((state) => state.notification, () => {
-        this.notification = store.state.notification
         if (store.state.account.logged) this.alert()
       })
     },
@@ -596,6 +591,7 @@
         this.$refs['right'].open()
       },
       alert () {
+        this.dismiss()
         this.$refs['alert'].open()
       },
       dismiss () {
@@ -971,6 +967,9 @@
           background-color blizzard-dark !important
           color blizzard-accent !important
           font-weight 700
+          -moz-box-shadow inset  0  10px 10px -10px rgba(0,0,0,0.5), inset  0 -10px 10px -10px rgba(0,0,0,0.5)
+          -webkit-box-shadow  inset  0  10px 10px -10px rgba(0,0,0,0.5), inset  0 -10px 10px -10px rgba(0,0,0,0.5)
+          box-shadow  inset  0  10px 10px -10px rgba(0,0,0,0.5), inset  0 -10px 10px -10px rgba(0,0,0,0.5)
         .md-subheader:first-of-type
           margin-top 5px
         .md-icon
@@ -978,7 +977,7 @@
         .md-chip
         span
           font-size 0.85em
-        .md-list-text-container>:nth-child(2)
+        .md-list-text-container > :nth-child(2)
           color blizzard-sub !important
   /* BLIZZARD */
 

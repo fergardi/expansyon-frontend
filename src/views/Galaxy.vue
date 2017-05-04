@@ -53,7 +53,7 @@
       md-card.md-primary.card(v-bind:class="mission.class")
         md-card-header
           .md-title
-            span {{ mission.name | i18n }}
+            span {{ mission.name }}
         md-card-media
           img(v-bind:src="mission.image")
         md-card-content
@@ -100,7 +100,7 @@
         form(v-on:submit.stop.prevent="quest()")
           md-card-header
             .md-title
-              span {{ mission.name | i18n }}
+              span {{ mission.name }}
           md-card-media
             img(v-bind:src="mission.image")
           md-card-content

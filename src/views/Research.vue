@@ -129,6 +129,5 @@
         align-items center
         justify-content center
     .md-button.skill:disabled
-      .md-icon
-        color grey
+      opacity 0.5
 </style>
