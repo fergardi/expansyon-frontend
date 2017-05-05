@@ -7,7 +7,7 @@
           .md-title
             span {{ selected.name }}
             md-chip {{ selected.total }} %
-        md-card-media
+        md-card-media.referendum
           img(v-bind:src="selected.image")
         md-card-content
           md-chip.pink {{ selected.aether | format }} {{ 'resource.aether' | i18n }}
@@ -23,7 +23,7 @@
             md-chip {{ referendum.total | format }} %
           .md-title
             md-chip.grey {{ referendum.votes | format }} {{ 'resource.votes' | i18n }}
-        md-card-media
+        md-card-media.referendum
           img(v-bind:src="referendum.image")
         md-card-content.no-padding
           .subprogress

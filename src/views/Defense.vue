@@ -8,7 +8,7 @@
             .md-title
               span {{ selected.name | i18n }}
               md-chip {{ selected.PlayerTower.quantity | format }}
-          md-card-media
+          md-card-media.tower
             img(v-bind:src="selected.image")
           md-card-content
             md-input-container(v-bind:class="{ 'md-input-invalid': !can }")
@@ -30,7 +30,7 @@
           .md-title
             span {{ tower.name | i18n }}
             md-chip {{ tower.PlayerTower.quantity | format }}
-        md-card-media
+        md-card-media.tower
           img(v-bind:src="tower.image")
         md-card-content.no-padding
           .subprogress

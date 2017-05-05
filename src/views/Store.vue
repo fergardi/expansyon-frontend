@@ -7,7 +7,7 @@
           .md-title
             span {{ selected.name | i18n }}
             md-chip {{ 1 | format }}
-        md-card-media
+        md-card-media.relic
           img(v-bind:src="selected.image")
         md-card-content
           span {{ selected.description | i18n }}
@@ -24,7 +24,7 @@
           .md-title
             span {{ relic.name | i18n }}
             md-chip {{ 1 | format }}
-        md-card-media
+        md-card-media.relic
           img(v-bind:src="relic.image")
         md-card-content
           md-chip(v-if="relic.level > 0") {{ relic.level | format }} {{ 'resource.level' | i18n }}

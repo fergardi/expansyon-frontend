@@ -5,7 +5,7 @@
       span {{ notification.text | i18n }}
       md-button.md-dense(v-bind:class="notification.class", v-on:click.native="dismiss()") {{ 'button.close' | i18n }}
 
-    md-whiteframe(md-elevation="8")
+    md-whiteframe
       md-toolbar#toolbar.md-dense.flex(v-if="!fullscreen")
         md-button.md-icon-button.toggler(v-on:click.native="left()")
           md-icon chevron_right
@@ -21,7 +21,7 @@
           md-icon chevron_left
 
     md-sidenav.md-left.md-fixed(ref="left", v-if="!fullscreen")
-      md-whiteframe(md-elevation="8")
+      md-whiteframe
         md-toolbar#left.md-account-header.center
           md-avatar.md-large
             img(src="https://image.flaticon.com/icons/svg/124/124582.svg")
@@ -186,7 +186,7 @@
             span {{ 'subtitle.logout' | i18n }}
 
     md-sidenav.md-right.md-fixed(ref="right", v-if="!fullscreen")
-      md-whiteframe(md-elevation="8")
+      md-whiteframe
         md-toolbar#right.md-account-header.center
           md-avatar.md-large
             img(src="https://image.flaticon.com/icons/svg/124/124555.svg")
@@ -888,9 +888,26 @@
         margin 0 15px
         font-size 0.7em
         line-height 15px
+    .md-card-media.planet
+      background url("img/planet.jpg") no-repeat center center
+    .md-card-media.faction
+      background url("img/faction.jpg") no-repeat center center
+    .md-card-media.building
+      background url("img/building.jpg") no-repeat center center
+    .md-card-media.tower
+      background url("img/tower.jpg") no-repeat center center
+    .md-card-media.ship
+      background url("img/ship.jpg") no-repeat center center
+    .md-card-media.resource
+      background url("img/resource.jpg") no-repeat center center
+    .md-card-media.relic
+      background url("img/relic.jpg") no-repeat center center
+    .md-card-media.referendum
+      background url("img/referendum.jpg") no-repeat center center
+    .md-card-media.mission
+      background url("img/mission.jpg") no-repeat center center
     .md-card-media
-      background url("img/back.jpg") no-repeat center center
-      background-size cover
+      background-size cover !important
       img
         height 140px
         padding 10px
@@ -921,7 +938,6 @@
   .md-button.md-raised
     color blizzard-font !important
   .md-button.skill
-  .md-card-media
     border 1px solid blizzard-accent
     box-sizing border-box
   .md-toolbar
@@ -967,9 +983,6 @@
           background-color blizzard-dark !important
           color blizzard-accent !important
           font-weight 700
-          -moz-box-shadow inset  0  10px 10px -10px rgba(0,0,0,0.5), inset  0 -10px 10px -10px rgba(0,0,0,0.5)
-          -webkit-box-shadow  inset  0  10px 10px -10px rgba(0,0,0,0.5), inset  0 -10px 10px -10px rgba(0,0,0,0.5)
-          box-shadow  inset  0  10px 10px -10px rgba(0,0,0,0.5), inset  0 -10px 10px -10px rgba(0,0,0,0.5)
         .md-subheader:first-of-type
           margin-top 5px
         .md-icon
@@ -1115,7 +1128,13 @@
         top 0
         pointer-events auto
         transform translate3d(0, 0, 0) !important
-        
+   
+  // dialogs
+  @media only screen and (min-width 769px)
+    .md-dialog
+      max-width 25%
+
+  // extra
   @media only screen and (max-width 768px)
     #toolbar
       .md-title

@@ -5,7 +5,7 @@
       md-card.md-primary.card(v-bind:class="selected.class")
         md-card-header
           .md-title {{ selected.name | i18n }}
-        md-card-media
+        md-card-media.faction
           img(v-bind:src="selected.image")
         md-card-content
           span {{ selected.description | i18n }}
@@ -20,7 +20,7 @@
       md-card.md-primary.card(v-bind:class="faction.class", md-with-hover, v-on:click.native="select(faction)")
         md-card-header
           .md-title {{ faction.name | i18n }}
-        md-card-media
+        md-card-media.faction
           img(v-bind:src="faction.image")
         md-card-content.no-padding
           .subprogress

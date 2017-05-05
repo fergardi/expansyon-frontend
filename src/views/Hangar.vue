@@ -40,7 +40,7 @@
             .md-title
               span {{ selected.name | i18n }}
               md-chip {{ selected.PlayerShip.quantity | format }}
-          md-card-media
+          md-card-media.ship
             img(v-bind:src="selected.image")
           md-card-content
             md-input-container(v-bind:class="{ 'md-input-invalid': !can }")
@@ -63,7 +63,7 @@
           .md-title
             span {{ ship.name | i18n }}
             md-chip {{ ship.PlayerShip.quantity | format }}
-        md-card-media
+        md-card-media.ship
           img(v-bind:src="ship.image")
         md-card-content.no-padding.center
           .subprogress

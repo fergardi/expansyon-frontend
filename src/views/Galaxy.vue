@@ -9,8 +9,8 @@
             md-chip {{ planet.total | format }}
           .md-title(v-if="owner(planet)")
             md-chip(v-bind:class="faction(planet)") {{ owner(planet) }}
-        md-card-media.system
-          .planet
+        md-card-media.system.planet
+          .core
             img(v-bind:src="planet.image")
           .orbit(v-if="planet.moon || planet.station")
             img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="planet.moon")
@@ -54,7 +54,7 @@
         md-card-header
           .md-title
             span {{ mission.name }}
-        md-card-media
+        md-card-media.mission
           img(v-bind:src="mission.image")
         md-card-content
           md-chip.grey(v-for="ship in mission.Ships") {{ ship.MissionShip.quantity | format }} {{ ship.name | i18n }}
@@ -69,8 +69,8 @@
             .md-title
               span {{ planet.name }}
               md-chip {{ planet.total | format }}
-          md-card-media.system
-            .planet
+          md-card-media.system.planet
+            .core
               img(v-bind:src="planet.image")
             .orbit(v-if="planet.moon || planet.station")
               img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="planet.moon")
@@ -101,7 +101,7 @@
           md-card-header
             .md-title
               span {{ mission.name }}
-          md-card-media
+          md-card-media.mission
             img(v-bind:src="mission.image")
           md-card-content
             md-input-container(v-bind:class="{ 'md-input-invalid': !hasFighter }")
@@ -404,7 +404,7 @@
     background-color rgba(255, 0, 0, 0.0)
   .system
     display flex
-    .planet
+    .core
       flex 2
     .orbit
       flex 1

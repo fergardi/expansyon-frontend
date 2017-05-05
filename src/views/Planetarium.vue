@@ -35,8 +35,8 @@
           .md-title
             span {{ selected.name }}
             md-chip {{ selected.total | format }}
-        md-card-media.system
-          .planet
+        md-card-media.system.planet
+          .core
             img(v-bind:src="selected.image")
           .orbit(v-if="selected.moon || selected.station")
             img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="selected.moon")
@@ -54,8 +54,8 @@
           .md-title
             span {{ planet.name }}
             md-chip {{ planet.total | format }}
-        md-card-media.system
-          .planet
+        md-card-media.system.planet
+          .core
             img(v-bind:src="planet.image")
           .orbit(v-if="planet.moon || planet.station")
             img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="planet.moon")
@@ -181,7 +181,7 @@
 <style lang="stylus" scoped>
   .system
     display flex
-    .planet
+    .core
       flex 2
     .orbit
       flex 1

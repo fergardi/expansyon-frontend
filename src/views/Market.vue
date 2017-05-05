@@ -9,10 +9,12 @@
             span(v-else) {{ item(selected).name | i18n }}
             md-chip(v-if="selected.quantity > 0") {{ selected.quantity | format }}
             md-chip(v-if="selected.Planet") {{ selected.Planet.total | format }}
-        md-card-media(v-if="!selected.Planet")
+        md-card-media.ship(v-if="selected.Ship")
           img(v-bind:src="item(selected).image")
-        md-card-media.system(v-else)
-          .planet
+        md-card-media.relic(v-if="selected.Relic")
+          img(v-bind:src="item(selected).image")
+        md-card-media.system.planet(v-if="selected.Planet")
+          .core
             img(v-bind:src="item(selected).image")
           .orbit(v-if="item(selected).moon || item(selected).station")
             img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="item(selected).moon")
@@ -51,10 +53,12 @@
             md-chip(v-if="sale.Planet") {{ sale.Planet.total | format }}
           .md-title
             md-chip(v-bind:class="color(sale.Player)") {{ sale.Player.name }}
-        md-card-media(v-if="!sale.Planet")
+        md-card-media.relic(v-if="sale.Relic")
           img(v-bind:src="item(sale).image")
-        md-card-media.system(v-else)
-          .planet
+        md-card-media.ship(v-if="sale.Ship")
+          img(v-bind:src="item(sale).image")
+        md-card-media.system.planet(v-if="sale.Planet")
+          .core
             img(v-bind:src="item(sale).image")
           .orbit(v-if="item(sale).moon || item(sale).station")
             img(src="https://image.flaticon.com/icons/svg/361/361706.svg", v-show="item(sale).moon")
@@ -250,7 +254,7 @@
 <style lang="stylus" scoped>
   .system
     display flex
-    .planet
+    .core
       flex 2
     .orbit
       flex 1
