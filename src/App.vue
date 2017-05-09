@@ -1,7 +1,7 @@
 <template lang="pug">
   .app
 
-    md-snackbar(ref="alert", md-position="bottom center")
+    md-snackbar(ref="alert", md-duration="5000", md-position="bottom center")
       span {{ notification.text | i18n }}
       md-button.md-dense(v-bind:class="notification.class", v-on:click.native="dismiss()") {{ 'button.close' | i18n }}
 
@@ -591,7 +591,7 @@
         this.$refs['right'].open()
       },
       alert () {
-        this.dismiss()
+        // this.dismiss()
         this.$refs['alert'].open()
       },
       dismiss () {
@@ -920,6 +920,13 @@
     font-size 10px
   .md-button[disabled]
     color grey
+
+  // tabs
+  .md-tabs
+    .md-tabs-content
+      overflow-y auto
+      .md-tabs-wrapper
+        overflow auto
 
   // snackbar
   .md-snackbar

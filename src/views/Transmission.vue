@@ -35,7 +35,7 @@
           md-button.md-dense.md-warn(v-on:click.native="close()") {{ 'button.cancel' | i18n }}
           md-button.md-dense.md-accent(v-on:click.native="remove()") {{ 'button.accept' | i18n }}
 
-    md-tabs(md-fixed)
+    md-tabs(md-fixed, @change="top($event)")
       md-tab#battles.no-padding(v-bind:md-label="$t('tab.battle')")
 
         md-table(md-sort="end", md-sort-type="desc", v-on:sort="order")
@@ -240,6 +240,9 @@
         return message.From
           ? message.From.name
           : message.To.name
+      },
+      top (event) {
+        [...document.querySelectorAll('.md-tabs-wrapper')].forEach((item) => { item.scrollTop = 0 })
       }
     },
     computed: {
